@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				background-color: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">运动</button>
+		<div class="box box1"></div>
+		<script>
+			var btn = document.getElementById("btn");
+			var box1 = document.querySelector(".box1");
+			var targetValue = 500;
+			var termId;  //定时器标识
+			btn.onclick = function(){
+				clearInterval(termId);
+				termId = setInterval(function(){
+					 var currentValue = box1.offsetLeft;  //当前的盒子的left值
+					 if(currentValue==targetValue){
+					 	clearInterval(termId);
+					 	return;
+					 }
+					 box1.style.left = currentValue + 1 + "px";
+				},10)
+			}
+		</script>
+	</body>
+</html>

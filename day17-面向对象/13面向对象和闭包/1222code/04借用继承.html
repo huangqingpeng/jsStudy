@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	父类
+			*/
+			function Parent(n,a){
+				//引用数据类型，在内存中是一个数据
+				this.liNian = ["教育根植于爱","喜欢是为了得到，爱却是付出"];  //引用数据类型
+				this.name = n;
+				this.age = a;
+			}
+			
+			
+			/*
+			 	子类
+			 */
+			function Son(n,a){
+				//this
+				//Parent.call(this,n,a);
+				Parent.apply(this,[n,a])
+			}
+			
+			
+			var s1 = new Son("明明",12);
+			s1.liNian[0] = "不虚空的人生，有信、有望、有爱";  //此时在这里改变的是自己的
+			console.log(s1);
+			
+			var s2 = new Son("黑黑",11);
+			console.log(s2);
+			
+			
+			// call  可以实现借用       借用目标.call(借用者,参数,参数)
+			// applay 可以实现借用    借用目标.applay(借用者,[参数,参数])
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

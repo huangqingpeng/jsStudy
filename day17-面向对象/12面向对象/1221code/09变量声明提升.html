@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	函数：作用域
+			 	全局作用域   （执行环境）
+			 		全局变量   在程序中任何地方使用
+			 	局部作用域   （执行环境）
+			 		局部变量  仅仅只能在本作用域中使用
+			 	若 全局变量和局部变量一样，在本作用域中，使用自己的（就近原则）  作用域链
+			 */
+			
+			var a = 123;
+//			function fn(){
+//				alert(a);  //undefined
+//				var a = 456;
+//				alert(a);  //456
+//			}
+//			fn();
+//			alert(a);   //123
+			
+			
+			
+			function fn(){
+				alert(a);
+				
+			}
+			fn();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

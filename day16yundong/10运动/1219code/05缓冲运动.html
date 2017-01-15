@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				background-color: gold;
+			}
+			.box2{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:250px;
+				left: 0;
+				background-color: green;
+			}
+			.box3{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:600px;
+				left: 0;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">前进</button>
+		<button id="btn2">后退</button>
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+		<div class="box box3"></div>
+		<script>
+			var btn = document.getElementById("btn");
+			var btn2 = document.getElementById("btn2");
+			var box1 = document.querySelector(".box1");
+			var box2 = document.querySelector(".box2");
+			var box3 = document.querySelector(".box3");
+			btn.onclick = function(){
+				animate(box1,700);
+				animate(box2,600);
+				animate(box3,800);
+			}
+			
+			btn2.onclick = function(){
+				animate(box1,0)
+				animate(box2,0)
+				animate(box3,0)
+			}
+			
+			
+			/*
+			 	dom，代表运动的那个物体（页面上的节点对象）
+			 	targetValue 该物体运动的一个目标值
+			 */
+			function animate(dom,targetValue){
+				clearInterval(dom.termId);
+				
+				dom.termId = setInterval(function(){
+					 var currentValue = dom.offsetLeft;  //当前的盒子的left值
+					 
+					 /*
+					  	甄别运动方向
+					  	目标值>当前值        +1
+					  	目标值<当前值        -1
+					  	目标值==当前值       停止定时器，结束运动
+					  	
+					  */
+					 var step = (targetValue-currentValue)/100;  //步子  越来越小
+					 //对步子做限制   速度极限的值         1  或   -1
+					 //0.111        -0.111
+					 //Math     ceil       floor
+					 if(step>0){
+					 	step = Math.ceil(step);
+					 }else{
+					 	step = Math.floor(step);
+					 }
+					 
+					 if(currentValue==targetValue){
+					 	clearInterval(dom.termId);
+					 	return;
+					 }
+					 console.log(step);
+					 
+					 dom.style.left = currentValue + step + "px";
+				},10)
+			}
+		</script>
+	</body>
+</html>

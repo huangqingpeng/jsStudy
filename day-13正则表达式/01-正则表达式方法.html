@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    //两种方法 创建正则表达式规则
+		    //g 是全局变量 
+		    //i 是忽略大小写
+			var reg=new RegExp("好","g");//
+			var reg=/好/g;
+			var str="好好学习，天天向上，好好";
+			//reg.test(str)得到的是boolean值
+			var result=reg.test(str);
+			console.log(result);//true
+			console.log(reg.test(str))
+			var str="j3434hfds5435kjdsl;k4355dhjh4355gdfg"
+			var reg=/\d\d\d\d/g;//正则表达式     连续四个数字
+			
+			var result=str.split(reg)
+			console.log(result);//正则表达式，将字符串用四个数字分隔成数组
+			
+			var reg=/4/g;//查找4
+			var result=str.match(reg);//返回一个数组
+			//alert(result);
+			console.log(result);
+			
+			
+			var reg=/4/g;//查找4
+			//search()的用法和indexOf()用法相近
+			var result=str.search(reg);//返回的是查找到的字符的索引，并返回，同时停止查找
+			alert(result);//返回的是查找到的字符的索引
+			console.log(result);//返回的是查找到的字符的索引
+
+			var str="jfhkdgfj";
+			var reg=/f/g;//查找f
+			//用replace()方法替换f为#
+			var result=str.replace(reg,"#");//返回的是查找到的字符的索引，并返回，同时停止查找
+			alert(result);//返回的是查找到的字符的索引
+			console.log(result);//返回的是查找到的字符的索引
+
+		</script>
+		
+		
+		
+	</body>
+</html>

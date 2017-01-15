@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .side-bar {
+            width: 400px;
+            height: 100%;
+            background-color: gold;
+            position: fixed;
+            right: -400px;
+        }
+
+        ul {
+            list-style: none;
+            position: absolute;
+            top: 20%;
+            right: 400px;
+        }
+
+        ul li {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        ul li+li {
+            margin-top: 10px;
+        }
+
+        ul li i {
+            width: 40px;
+            height: 40px;
+            display: block;
+            background-color: blue;
+            position: relative;
+        }
+
+        ul li p {
+            width: 100px;
+            position: absolute;
+            top: 0;
+            right: -60px;
+            /*40 -60*/
+            font: bold 16px/40px "微软雅黑";
+            background-color: blue;
+            text-align: center;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: yellow;
+            top: 0;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<div class="side-bar" id="side_bar">
+
+    <ul id="list">
+        <li>
+            <p>京东会员</p>
+            <i></i>
+
+        </li>
+        <li class="myCar" isOpen="1">
+            <p>我的购物车</p>
+            <i></i>
+
+        </li>
+        <li>
+            <p>我的关注</p>
+            <i></i>
+
+        </li>
+    </ul>
+    <div class="content">
+        <h1>购物车</h1>
+    </div>
+</div>
+<script src="js/animate.js"></script>
+<script>
+      var sideBar=document.getElementById("side_bar");
+      var uL=document.getElementById("list")
+
+
+
+      var myCart=document.querySelector(".myCar");
+      var isHide=true;//代表 sideBar是隐藏的
+
+      uL.onmouseover=function(e){
+          var _e=window.event||e;
+          var _t=_e.srcElement||_e.target;
+          var li=_t.parentNode;
+          var p=li.firstElementChild;
+          if(li.tagName.toLocaleLowerCase()=="li"){
+              animate(p,{right:40},10);
+          }
+      }
+      uL.onmouseout=function(e){
+          var _e=window.event||e;
+          var _t=_e.srcElement||_e.target;
+          var li=_t.parentNode;
+          var p=li.firstElementChild;
+          if(li.tagName.toLocaleLowerCase()=="li"){
+              animate(p,{right:-60},10);
+          }
+      }
+
+
+      myCart.onclick=function(){
+          var p=this.firstElementChild;
+          if(isHide){
+              animate(sideBar,{right:0},10);
+              p.style.display="none";
+          }else{
+              animate(sideBar,{right:-400},10,function(){
+                  p.style.right="-60px";
+                  p.style.display="block";
+              });
+          }
+          isHide=!isHide;
+      }
+
+
+
+</script>
+
+</body>
+
+</html>

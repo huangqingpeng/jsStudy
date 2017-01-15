@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.container {
+				width: 1210px;
+				margin: 0 auto;
+			}
+			/*轮播模块容器样式修饰*/
+			
+			.lunBo {
+				width: 764px;
+				height: 360px;
+				margin: 0 auto;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.lunBo .content {
+				width: 3056px;
+				/*偏方*/
+				overflow: hidden;
+				position: absolute;
+				left: 0;
+			}
+			
+			.lunBo .content .lunBo-item {
+				float: left;
+			}
+			/*左右按钮控制*/
+			
+			.lunBo .btn {
+				position: absolute;
+				font: bold 52px/52px "宋体";
+				color: #eee;
+				top: 50%;
+				margin-top: -26px;
+				cursor: pointer;
+			}
+			
+			.lunBo .right-button {
+				right: 0;
+			}
+			/*一组控制按钮样式修饰*/
+			
+			.controls {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			
+			.controls ul {
+				overflow: hidden;
+			}
+			
+			.controls ul li {
+				width: 20px;
+				height: 20px;
+				border: 3px solid #ccc;
+				border-radius: 26px;
+				float: left;
+				cursor: pointer;
+			}
+			
+			.controls ul li+li {
+				margin-left: 20px;
+			}
+			
+			.controls ul li.active {
+				background-color: #FFFFFF
+			}
+		</style>
+		<script type="text/javascript" src="animate3.js" ></script>
+	</head>
+
+	<body>
+		<!--版心-->
+		<div class="container">
+			<!--轮播图-->
+			<div class="lunBo" id="lunBo">
+				<!--轮播项-->
+				<div class="content" id="content">
+					<div class="lunBo-item">
+						<a href="#">
+							<img src="lbt/lbt01.jpg" alt="" />
+						</a>
+					</div>
+					<div class="lunBo-item">
+						<a href="#">
+							<img src="lbt/lbt02.jpg" alt="" />
+						</a>
+					</div>
+					<div class="lunBo-item">
+						<a href="#">
+							<img src="lbt/lbt03.jpg" alt="" />
+						</a>
+					</div>
+					<div class="lunBo-item">
+						<a href="#">
+							<img src="lbt/lbt04.jpg" alt="" />
+						</a>
+					</div>
+				
+				</div>
+				<!--左右控制按钮-->
+				<div id="lBtn" class="btn left-button">&lt;</div>
+				<div id="rBtn" class="btn right-button">&gt;</div>
+				<!--一组控制按钮-->
+				<div class="controls">
+					<ul>
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		
+	</body>
+
+</html>

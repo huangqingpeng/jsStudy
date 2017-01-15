@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			<label for="userName">用户名：</label>
+			<input type="text" id="userName" />
+		</p>
+		<p>
+			<label for="pwd">密码：</label>
+			<input type="password" id="pwd" />
+		</p>
+		<button id="login">登录</button>
+		<script src="1637bAjax.js"></script>
+		<script>
+			var login = document.getElementById("login");
+			var userName = document.getElementById("userName");
+			var pwd = document.getElementById("pwd");
+			login.onclick = function(){
+				var u = userName.value;
+				var p = pwd.value;
+				ajax({
+					method:"post",
+					url:"http://127.0.0.1:8989/1216Code/handler.php",
+					data:{uName:u,pd:p},
+					isAsyc:true,
+					success:function(data){
+						if(data==1){//成功
+							location.href = "test.php";
+						}else{//失败
+							alert("用户名或密码错误");
+						}
+					},
+					error:function(message){
+						alert(message);
+					}
+				})
+				
+			}
+		</script>
+	</body>
+</html>

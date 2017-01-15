@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	父类
+			*/
+			function Parent(n,a){
+				//引用数据类型，在内存中是一个数据
+				this.liNian = ["教育根植于爱","喜欢是为了得到，爱却是付出"];  //引用数据类型
+				this.name = n;
+				this.age = a;
+			}
+			Parent.prototype.say = function(){
+				alert("All is well");
+			}
+			
+			
+			/*
+			 	子类
+			 */
+			function Son(n,a){
+				//this
+				//Parent.call(this,n,a);
+				Parent.apply(this,[n,a])
+			}
+			var fu = new Parent();
+			Son.prototype = fu;
+			
+			
+			var s1 = new Son("明明",12);
+			
+			
+			var s2 = new Son("黑黑",11);
+			
+			
+			
+			console.log(s1);
+			console.log(s2)
+			
+			s1.say();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

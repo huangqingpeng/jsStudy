@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var reg=/./;//查找任意单个字符
+		    var str="fdfg";
+		   // alert(reg.test(str));//true
+			//\w 查找单词字符    \W 大写W是查找非单词字符
+			// 单词字符包括： 下划线_、字母、数字
+			var reg = /\w/;
+			var str="djfkldsjkl";
+			console.log(reg.test(str));//true
+			
+			//\d 查找数字    \D 大写D是查找非数字
+			// 数字包括：0-9
+			var reg = /\d/;
+			var str="djfkldsjkl";
+			console.log(reg.test(str));//false
+			var reg = /\D/;
+			console.log(reg.test(str));//true
+			
+			//\s 查找空白字符    \S 大写S是查找非空白字符
+			var reg = /\s/;
+			var str="djfkl dsjkl";
+			console.log(reg.test(str));//true
+			var str=" ";
+			var reg = /\S/;
+			console.log(reg.test(str));//false
+			
+			//\b 匹配单词边界    \B 大写B是匹配非单词边界
+			var reg = /\w3/;
+			var str="love w3School";
+			console.log(reg.test(str));//true
+			
+			//[abc] 查找方括号之间的任何一个字符,
+			//[^abc] 查找任何不在方括号之间的字符
+			var reg = /[abcdfjfdkjk]/;
+			var str="13497894570d4";
+			console.log(reg.test(str));//true
+			var reg = /[^abcdfjfdkjk]/;
+			var str="abcdf";
+			console.log(reg.test(str));//false
+
+			//[0-9]  查找任何从0到9的数字
+			var reg = /[0-9]/;
+			var str="love w3School";
+			console.log(reg.test(str));//true   有3
+
+			//[a-z]  查找任何从a到z的数字
+			var reg = /[a-z]/;
+			var str="975387539880";
+			console.log(reg.test(str));//false
+
+			//[A-Z]  查找任何从A到Z的数字
+			//[A-z]  查找任何从大写A到小写z的数字
+			var reg = /[A-Z]/;
+			var str="jkfdhgjhdjfguuhhfdjg";
+			console.log(reg.test(str));//false   区分大小写
+
+			//[bjhdcgd]  查找任何给定集合的任何字符
+			//[^bjhdcgd]  查找任何给定集合以外的任何字符
+			var reg = /[8347jkdfshf]/;
+			var str="jkfdhgjhdjfguuhhfdjg";
+			console.log(reg.test(str));//true   区分大小写
+
+			//(asdsf|sdfs|dsfd)  查找任何指定的选项    小括号代表一组
+			var reg = /(jh|dhjf)/;
+			var str="jkfdhgjhdjfguuhhfdjg";
+			console.log(reg.test(str));//true   有jh
+
+
+
+
+		</script>
+	</body>
+</html>

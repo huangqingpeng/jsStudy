@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#content {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="content"></p>
+		<p>
+			<label for="userName">用户名：</label>
+			<input type="text" id="userName" />
+		</p>
+		<p>
+			<label for="pwd">密码：</label>
+			<input type="password" id="pwd" />
+		</p>
+		<button id="login">登录</button>
+		<script>
+			var login = document.getElementById("login");
+			var userName = document.getElementById("userName");
+			var pwd = document.getElementById("pwd");
+			var content = document.getElementById("content");
+			login.onclick = function() {
+				var u = userName.value;  //用户名内容
+				var p = pwd.value;  //密码内容
+				var xhr = new XMLHttpRequest(); //第一步 创建工具库
+
+				//第二步：建立连接
+				xhr.open("POST", "http://127.0.0.1:8989/1215code/handler.php", true);
+
+				//第三步：发送
+				//"参数名=值&参数名=值"   post请求要把所提交的参数以字符串的形式放到send工具调用中
+				var data = "uName=" + u + "&pd=" + p;
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');   //模拟表单体的方式提交
+				xhr.send(data);
+
+				//第四步：监听响应
+				xhr.onreadystatechange = function() {
+					//xhr.readyState  0 1 2 3 4
+					if (xhr.readyState == 4) { //http响应包已经全部得到
+						//xhr.status      200  ok
+						if (xhr.status == 200) { //浏览器已经完全解析http响应包
+							//xhr.responseText   得到响应的内容
+							if(xhr.responseText=="success"){
+								location.href = "https://www.jd.com" ;
+							}else{
+								content.innerHTML = "用户名或密码错误";
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>

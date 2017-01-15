@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function Dog(n,a,g){
+				/*
+				 	属性
+				 */
+				this.name = n;
+				this.age = a;
+				this.gender = g;
+				
+				/*
+				 	方法
+				 */
+				this.say = function(){
+					alert("姓名：" + this.name + ",年龄：" + this.age + ",性别：" + this.gender);
+				}
+				
+				
+			}
+			
+			var dog1 = new Dog("花花",1,false);  // true 男    false 女
+			var dog2= new Dog("豆豆",2,true);  // true 男    false 女
+			var dog3 = new Dog("乐乐",1,false);  // true 男    false 女
+			var dog4 = new Dog("多多",3,true);  // true 男    false 女
+			var dog5 = new Dog("蛋蛋",1,true);  // true 男    false 女
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			form表单提交表单项始终都是 同步
+			action    把表单元素要提交给服务端的地址
+			method    提交的方式  get或post
+			
+			对于所要提交的表单项  要设置name属性
+			name属性就相当于参数的名字
+		-->
+		<form action="http://127.0.0.1:8989/1215code/handler.php" method="post">
+			<p id="content"></p>
+			<p>
+				<label for="userName">用户名：</label>
+				<input name="uName" type="text" id="userName" />
+			</p>
+			<p>
+				<label for="pwd">密码：</label>
+				<input name="pd" type="password" id="pwd" />
+			</p>
+			<!--这个按钮可以像submit一样使用-->
+			<button id="login">登录</button>    
+		</form>
+
+	</body>
+
+</html>

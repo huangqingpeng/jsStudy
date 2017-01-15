@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			function zhanan(){
+				var xiaosan = 249;
+				//活动对象2  xiaosn:249       【活动对象1《-活动对象2】
+				
+				function xifu(){     //引用数据
+					xiaosan++;
+					alert(xiaosan);
+					//活动对象3          【活动对象1《-活动对象2<-活动对象3】
+					
+				}
+				
+				return xifu;
+			}
+			
+			//需要访问函数内部的变量
+			var wj = zhanan();   
+			//活动对象1     wj:function() 【活动对象1 wj 《-活动对象2<-活动对象3】
+			//相互引用
+			wj();
+			wj();
+			wj();
+			
+			wj = null;
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

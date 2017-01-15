@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*设置默认样式*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        /*版心*/
+        .container{
+            width: 1120px;
+            margin: 0 auto;
+        }
+        /*轮播图*/
+        .lbt{
+            width: 764px;
+            height: 363px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        /*轮播项*/
+        .lbt .content{
+            width: 100%;
+            position:relative;
+        }
+        .lbt .content li{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .lbt .content li.active{
+            z-index: 998;
+        }
+        /*tab控制按钮*/
+        .lbt .list{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+        .lbt .list li{
+            width: 20px;
+            height: 20px;
+            border: 1px solid #808080;
+            float: left;
+
+
+        }
+        .lbt .list li.active{
+            background-color: white;
+        }
+        .lbt .list li+li{
+            margin-left: 5px;
+        }
+        /*左右控制按钮*/
+        .lbt .btns{
+            display: none;
+
+        }
+        .lbt .btns.active{
+            display: block;
+        }
+        .lbt .control{
+            font-style: normal;
+            width:40px;
+            height: 50px;
+            font:bold 50px/50px "宋体";
+            position: absolute;
+            background-color: #CCCCCC;
+            color: white;
+            top:50%;
+            margin-top: -25px;
+            text-align: center;
+            cursor: default;
+            z-index: 999;
+            opacity: 0.8;
+        }
+        .lbt .control-left{
+            left: 0;
+        }
+        .lbt .control-right{
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--轮播图模块       轮播图1-->
+    <div class="lbt" id="lbt1">
+        <!--轮播项目-->
+        <ul class="content" >
+            <!--<li class="active">-->
+                <!--<a href="#">-->
+                    <!--<img src="img/lbt01.jpg"/>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">-->
+                    <!--<img src="img/lbt02.jpg"/>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">-->
+                    <!--<img src="img/lbt03.jpg"/>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">-->
+                    <!--<img src="img/lbt04.jpg"/>-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+        <!--轮播tab切换按钮-->
+        <ul class="list" >
+            <!--<li class="active"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        </ul>
+        <!--左右控制按钮-->
+        <div class="btns">
+            <i class="control control-left" >&lt;</i>
+            <i class="control control-right" >&gt;</i>
+        </div>
+
+    </div>
+     <!--轮播图模块       轮播图2-->
+    <div class="lbt" id="lbt2">
+        <!--轮播项目-->
+        <ul class="content" >
+            
+        </ul>
+        <!--轮播tab切换按钮-->
+        <ul class="list" >
+           
+        </ul>
+        <!--左右控制按钮-->
+        <div class="btns">
+            <i class="control control-left" >&lt;</i>
+            <i class="control control-right" >&gt;</i>
+        </div>
+
+    </div>
+</div>
+<script src="js/animate.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/object-lunbo.js"></script><!--面向对象轮播 ajax加载-->
+<!--<script type="text/javascript" src="js/05_2ajax.js" ></script>--><!--ajax加载-->
+</body>
+</html>

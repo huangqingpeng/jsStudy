@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	父类
+			*/
+			function Parent(){
+				this.liNian = ["教育根植于爱","喜欢是为了得到，爱却是付出"];  //引用数据类型
+				this.name = "父亲";   //字符串    基本数据类型
+			}
+			
+			
+			/*
+			 	子类
+			 */
+			function Son(){
+				
+			}
+			
+			var fu = new Parent();  //fu是真实存在的
+			Son.prototype = fu;
+			
+			var s1 = new Son();   //独立的个体   思想自由
+			//console.log("s1打印的：" + s1.liNian);
+			//s1.liNian = "恨能挑起争端，爱能遮掩一切的过错";
+			//console.log("s1打印的：" + s1.liNian);
+			s1.name = "爹地";   //并没有把父亲中name改变了，而是给自己添加了一个name = "爹地"
+			//console.log(s1.name);  //爹地
+			console.log(s1)
+			
+			var s2 = new Son();   //独立的个体  思想自由
+			//console.log("s2打印的：" + s2.liNian);
+			//console.log(s2.name);//父亲
+			console.log(s2);
+			
+			//子类可以继承父类，但不能改变父类的数据（内存中的那个数据的地址）
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

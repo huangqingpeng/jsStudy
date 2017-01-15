@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function Dog(n,a,g){
+				/*
+				 	属性
+				 */
+				this.name = n;
+				this.age = a;
+				this.gender = g;
+				
+				
+			}
+			//Dog.prototype 就代表一个原型对象    键值对
+			//console.log(typeof Dog.prototype)   //object
+			Dog.prototype.say = function(){
+					//this  代表调用者
+					alert("姓名：" + this.name + ",年龄：" + this.age + ",性别：" + this.gender);
+				}
+			
+			//console.log(Dog.prototype)
+			
+			var dog1 = new Dog("花花",1,false);  // true 男    false 女
+			var dog2= new Dog("豆豆",2,true);  // true 男    false 女
+			var dog3 = new Dog("乐乐",1,false);  // true 男    false 女
+			var dog4 = new Dog("多多",3,true);  // true 男    false 女
+			var dog5 = new Dog("蛋蛋",1,true);  // true 男    false 女
+			
+			dog2.say();
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

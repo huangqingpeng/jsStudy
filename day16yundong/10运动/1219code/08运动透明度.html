@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				background-color: gold;
+				filter: alpha(opacity=20);
+				opacity: 0.2;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">运动</button>
+		<div class="box box1"></div>
+		<script  src="animate2.js" ></script>
+		<script>
+			
+			var btn = document.getElementById("btn");
+			var box1 = document.querySelector(".box1");
+			
+			btn.onclick = function(){
+				animate(box1,{width:400,height:800,left:300});
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

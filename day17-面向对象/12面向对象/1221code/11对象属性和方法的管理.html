@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var obj = new Object();  //空对象
+			//添加键值对    对象.键名 = 数据;   对象["键名"] = 数据;
+			obj.age = 123;
+			obj['gender'] = "man";
+			
+			//查找  对象.键名       对象["键名"]
+			var pName = "age";
+			//alert(obj.pName); //对应点  会把pName这个字符当做键名
+			//obj[pName]  //=> obj["age"];
+//			alert(obj[pName]);  //123
+			
+			
+			//修改 对象.键名 = 数据;   对象["键名"] = 数据;
+			obj.age = 456;
+//			alert(obj.age); //456
+			
+			//删除 delete     delete obj.键名      delete 对象["键名"]
+			
+			delete obj.age;
+			alert(obj.age);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

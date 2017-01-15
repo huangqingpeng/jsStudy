@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	程序执行的时候：从上往下
+			 	js:编程语言，解释型 （同步翻译）        编译型（翻译好，拿着稿子念）
+			 	var => 01
+			 	var num = 1;
+			 	var str = "123";
+			 	
+			 	//变量声明提升
+			 	
+			 	//预解析（准备的工作）-》执行
+			 	// 浏览器   js引擎
+			 	要把var关键字所声明的变量名（仅仅是变量名），提升到【当前执行环境】的顶部
+			 	【当前执行环境】 作用域
+			 	
+			 	把function用[函数声明的方式]所声明函数整体提升到当前执行环境的顶部
+			 	
+			 */
+			
+			alert(num);   //undefined
+			var num = 123;
+			alert(num);  //123
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

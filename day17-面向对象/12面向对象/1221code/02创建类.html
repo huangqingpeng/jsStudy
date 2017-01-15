@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//class 类名
+			//ES3.0  ES5.0(在低版本浏览器下可能有兼容性问题)  ES6.0 (ES2015)  class
+			//ESMAScript  【浏览器平台】       【  Node平台 】--->完全支持ES6.0     ....硬件设备 
+			
+			
+			 function Dog(){  //相当于类
+			 	
+			 }
+			 //Dog();   //普通函数
+			 //new Dog();  //构造函数
+			 //类名，一般首字母大写
+			 
+			 //构造函数   创建并初始化对象
+			 
+			 var dog1 = new Dog();  //对象   
+			 dog1.name = "阿黄";
+			 dog1.age = 1;
+			 dog1.gender = "公";
+			 dog1.type = "狼青";
+			 //new RegExp();
+			 dog1.talk = function(){
+			 	//instanceof 
+			 	alert(this instanceof Dog);
+			 	alert("hello，主任，我叫" +this.name + "我是条" + this.gender +  this.type)
+			 }
+			 
+			 
+			 
+			 
+			 //this关键字，可以在任何地方使用，但是this代表谁，是在程序执行的时候决定的
+			 
+			 alert(this.setInterval);
+			 
+			 dog1.talk();
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

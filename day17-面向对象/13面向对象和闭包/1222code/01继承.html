@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//根对象  Object     类型   
+			//alert(Object)
+			//Object.prototype     ->得到Object的原型对象    "共享" 
+			Object.prototype.say= function(){
+				alert("我是老祖宗的原型对象，你们身上有我的血")
+			}
+			
+			function Dog(){
+				
+			}
+			
+			var dog = new Dog();
+			//instanceof 
+			//dog.say();   //   
+			console.log(dog);
+			
+			
+			//dog   没有say
+			//↓     dog.__proto__     
+			//Dog.prototype    没有say
+			//↓     Dog.prototype__proto__
+			//Object.prototype  //say
+			//这种从上往下一环有一环的找原型对象的这种现象，被称之为“原型链”
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box1{
+            width:200px;
+            height:200px;
+            position:absolute;
+            top:50px;
+            margin-bottom:50px;
+            background:red;
+        }
+        #box2{
+            width:200px;
+            height:200px;
+            margin-bottom:50px;
+            background:pink;
+            position:absolute;
+            top:500px;
+        }
+        #box3{
+            width:200px;
+            height:200px;
+            margin-bottom:50px;
+            background:blue;
+            position:absolute;
+            top:800px;
+        }
+    </style>
+</head>
+<body>
+     <button id="btn">运动</button>
+     <div id="box1"></div>
+     <div id="box2"></div>
+     <div id="box3"></div>
+
+     <script>
+         var btn=document.getElementById("btn");
+         var box1=document.getElementById("box1");
+         var box2=document.getElementById("box2");
+         var box3=document.getElementById("box3");
+         btn.onclick=function(){
+             animate(box1,500);
+             animate(box2,900);
+             animate(box3,600);
+         }
+        function  animate(dom,targetValue) {
+            clearInterval(dom.timer);
+            dom.timer=setInterval(function(){
+                 var leftValue=dom.offsetLeft;
+                 var step=(targetValue-leftValue)/50;
+                //console.log(step);
+                if(step>0){
+                    step=Math.ceil(step);
+                }else{
+                    step=Math.floor(step);
+                }
+                if(step==0){
+                    clearInterval(dom.timer);
+                }
+                console.log(leftValue);
+                console.log(step);
+                dom.style.left=leftValue+step+"px";
+            },20)
+
+        }
+     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

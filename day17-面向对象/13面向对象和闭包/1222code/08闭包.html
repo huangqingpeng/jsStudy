@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var a = 123;  //全局变量
+			var b = 456;
+			var c = 890;   
+			//活动对象1  a:123,b:456,c:890   test:function        【活动对象1】   
+			
+			function test(){
+				var num = 444;
+				var age = 33;
+				//活动对象2  num:444,age:33    	【活动对象1 <-活动对象2】
+//				alert(a);   //123
+				alert(name)
+				function fn(){
+					var name = "bruce";
+					alert(num);
+					//活动对象3    name:"bruce"    【活动对象1 <-活动对象2  <- 活动对象3】
+				}
+			}
+			
+			
+			
+			//为什么能够被打印出来？
+			//
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

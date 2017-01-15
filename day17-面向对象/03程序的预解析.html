@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a=4;
+			function fn(){
+				console.log(a);//4     先在函数内部找  没有   则直接去看全局变量
+				a=123;
+				console.log(a);//123
+			}
+			fn();
+			console.log(a);//123   a位全局变量    a的值被函数内修改了
+			
+			
+			
+			/*
+			         函数的声明变量提升    程序预解析时  ，会首先把作用域内的变量名（仅仅是变量名）提升到顶部     var  a；此时并没有赋值
+			      
+			 * 程序执行的时候：从上往下
+			 	js:编程语言，解释型 （同步翻译）        编译型（翻译好，拿着稿子念）
+			 	var => 01
+			 	var num = 1;
+			 	var str = "123";
+			 	
+			 	//变量声明提升
+			 	//预解析（准备的工作）-》执行
+			 	// 浏览器   js引擎
+			 	要把var关键字所声明的变量名（仅仅是变量名），提升到【当前执行环境】的顶部
+			 	【当前执行环境】 作用域
+			 	
+			 	把function用[函数声明的方式]所声明函数整体提升到当前执行环境的顶部
+			 
+			 * 
+			 * 
+			 * 函数：作用域
+			 	全局作用域   （执行环境）
+			 		全局变量   在程序中任何地方使用
+			 	局部作用域   （执行环境）
+			 		局部变量  仅仅只能在本作用域中使用
+			 	若 全局变量和局部变量一样，在本作用域中，使用自己的（就近原则）  作用域链
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * *
+			 **/
+			var a=4;
+			function sun(){
+				console.log(a);//undefined
+				var a=123;
+				console.log(a);//123
+			}
+			sun();
+			console.log(a);//4
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

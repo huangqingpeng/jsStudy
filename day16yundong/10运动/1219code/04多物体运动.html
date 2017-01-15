@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				background-color: gold;
+			}
+			.box2{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:250px;
+				left: 0;
+				background-color: green;
+			}
+			.box3{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:600px;
+				left: 0;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">前进</button>
+		<button id="btn2">后退</button>
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+		<div class="box box3"></div>
+		<script>
+			var btn = document.getElementById("btn");
+			var btn2 = document.getElementById("btn2");
+			var box1 = document.querySelector(".box1");
+			var box2 = document.querySelector(".box2");
+			var box3 = document.querySelector(".box3");
+			var targetValue = 500;
+			var termId;  //定时器标识
+			btn.onclick = function(){
+				animate(box1,500);
+				animate(box2,600);
+				animate(box3,200);
+			}
+			
+			btn2.onclick = function(){
+				animate(box1,0)
+				animate(box2,0)
+				animate(box3,0)
+			}
+			
+			
+			/*
+			 	dom，代表运动的那个物体（页面上的节点对象）
+			 	targetValue 该物体运动的一个目标值
+			 */
+			function animate(dom,targetValue){
+				clearInterval(dom.termId);
+				
+				dom.termId = setInterval(function(){
+					 var currentValue = dom.offsetLeft;  //当前的盒子的left值
+					 
+					 /*
+					  	甄别运动方向
+					  	目标值>当前值        +1
+					  	目标值<当前值        -1
+					  	目标值==当前值       停止定时器，结束运动
+					  	
+					  */
+					 var step;   //步子       物体每隔一段时间走多远
+					 if(targetValue>currentValue){
+					 	step = 1;
+					 }else if(targetValue<currentValue){
+					 	step = -1;
+					 }else{   //等于目标值
+					 	clearInterval(termId);
+					 	return;
+					 }
+					 dom.style.left = currentValue + step + "px";
+				},10)
+			}
+		</script>
+	</body>
+</html>

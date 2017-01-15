@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Parent(n,a){
+				this.gongfu=["1","2"];
+				this.name=n;
+				this.age=a;
+			}
+			
+			function Son(){
+				
+			}
+			//原型继承
+//			var p1=new Parent();
+//			Son.prototype=p1;//原型继承
+//			var s1=new Son();
+//			console.log(s1);
+//			s1.gongfu[1]="5";//
+//			console.log(s1);//1 2
+//			
+//			var s2=new Son();
+//			console.log(s2);// 1 2
+			
+			//借用继承
+			function Son(n ,a){//  n是参数   this指的是调用时的对象
+				//Parent.call(this,n,a);  //call的借用继承  参数直接写
+				Parent.apply(this,[n,a]);  //apply的借用继承  按顺序写在数组中
+			}
+			var  p1=new Parent();
+			console.log(p1.gongfu);//1 2
+			var s1=new Son("小明",22);
+			s1.gongfu[1]="5";
+			console.log(s1);
+			console.log(s1.gongfu);//1 5
+			var s2=new Son("小红",14);
+			console.log(s2);
+			console.log(s2.gongfu);//1 2
+		</script>
+	</body>
+</html>

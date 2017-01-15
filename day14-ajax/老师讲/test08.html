@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	fn是一个形参，将来要接收一个实参（函数的定义有一个形参）
+			 */
+			function test(fn){
+				fn("456");
+			}
+//			
+//			
+//			test(function(data){
+//				alert(data);
+//				console.log(data);
+//				document.write(data)
+//			})
+
+//			var arr = [2,3,1,4,5];
+//			arr.sort(function(a,b){
+//				return a-b;
+//			})
+
+
+			var shican = function(a){
+				alert(a);
+			}
+			
+			test(shican);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

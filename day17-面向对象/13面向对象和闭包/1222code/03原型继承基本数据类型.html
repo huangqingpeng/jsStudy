@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	父类
+			*/
+			function Parent(){
+				//引用数据类型，在内存中是一个数据
+				this.liNian = ["教育根植于爱","喜欢是为了得到，爱却是付出"];  //引用数据类型
+			}
+			
+			
+			/*
+			 	子类
+			 */
+			function Son(){
+				
+			}
+			
+			var fu = new Parent();  //fu是真实存在的
+			Son.prototype = fu;
+			
+			var s1 = new Son();
+			//更改的时候，虽然数组中的内容发生了变化，但是在内存中的地址并没有变化
+			//并且，s1本身没有liNian.所更改的是父类中的数据
+			//从内存角度来看，数据本身的位置并没有发生变化
+			//s1.liNian[1] = "不虚空的人生，有信、有望、有爱";
+			//s1.liNian = ["不虚空的人生，有信、有望、有爱","喜欢是为了得到，爱却是付出"];
+			console.log(s1)
+			var s2= new Son();
+			console.log(s2)
+			
+			
+			//子类可以继承父类，但不能改变父类的数据（内存中的那个数据的地址）
+			
+			//我们的需求是：解决内容同步
+			//怎么解决：子对象从父对象那里复制一份要继承过来的数据    使用借用继承
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

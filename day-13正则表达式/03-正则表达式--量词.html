@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式量词</title>
+</head>
+<body>
+     <script>
+
+         //n{x}匹配包含x个n的序列的字符串
+         var reg=/4{4}/  ;
+         var str="jdhj4444jfdhk444jkh4kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true
+
+
+
+         //n{x,y}匹配包含x或y个n的序列的字符串
+         var reg=/4{5,6}/  ;
+         var str="jdhj4444jfdhk444jkh4kjlk343";
+         var result=reg.test(str);
+         console.log(result);//false  因为匹配6个4 或5个4  字符串里面最多才有四个
+
+
+         //n{x,}匹配包含至少有x个n的序列的字符串
+         var reg=/4{5,}/  ;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true    因为匹配至少有5个4  而里面有一个满足
+
+
+          //^n匹配任何以n为开头的字符串
+         // n$  匹配任何以n为结尾的字符串
+         var reg=/^j/  ;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true
+         var reg=/3$/;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true
+
+         // n? 匹配任何0个或1个n的字符串
+         var reg=/2?/  ;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true   0个2
+
+         // n* 匹配任何0个或多个n的字符串    也即是可有可无
+         var reg=/2*/  ;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//true   0个2
+
+         // n+ 匹配任何包含至少1个n的字符串
+         var reg=/2+/  ;
+         var str="jdhj4444jfdhk444jkh44444444kjlk343";
+         var result=reg.test(str);
+         console.log(result);//false   0个2
+
+         //
+
+
+     </script>
+
+</body>
+</html>

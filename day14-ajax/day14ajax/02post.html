@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#content{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="content"></p>
+		<p>
+			<label for="userName">用户名：</label>
+			<input type="text" id="userName" />
+		</p>
+		<p>
+			<label for="pwd">密码：</label>
+			<input type="password" id="pwd" />
+		</p>
+		<button id="login">登录</button>
+		<script type="text/javascript">
+			var content=document.getElementById("content");
+			var userName=document.getElementById("userName");
+			var pwd=document.getElementById("pwd");
+			var login=document.getElementById("login");
+			login.onclick=function(){
+				var uName=userName.value;
+				var uP=pwd.value;
+				console.log(uP);
+				console.log(uName);
+				var xhr=new XMLHttpRequest();
+				var url="http://127.0.0.1:8088/day14ajax/data.php";
+				//post方式请求   
+				xhr.open("post",url,true);
+				//setRequestHeader  必须放在send发送之前
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				//数据以字符串格式用send发送，
+				var data="name="+uName+"&pwd="+uP;
+				xhr.send(data);
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+							var data=xhr.responseText;
+							console.log(data);
+							if(data=="success"){
+								location.href="http://baidu.com";
+							}else{
+								content.innerHTML="用户名或密码错误";
+							}
+						}
+					}
+				}
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
+

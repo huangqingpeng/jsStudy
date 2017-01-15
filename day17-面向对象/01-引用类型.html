@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(){
+				this.name="老王";
+				this.age="22";
+				this.introduce=function(){
+					alert("我是"+this.name+"，今年"+this.age);
+				}
+			};
+			var person1=new Person();
+			person1.name="李四";
+			console.log(person1);
+			
+			var person2=new Person();
+			person2.friend="王五";
+			console.log(person2.friend);
+			
+			function Student(){
+				     this.classname="1637";
+				     this.adress="昌平";
+				     this.school="千峰";
+			   };
+			   
+			var student1=new Student();
+			student1.name="xiaohong";
+			student1.age=22;
+			student1.friend="wangwu";
+			console.log(student1);
+			
+			var student2=new Student();
+			console.log(student2);
+			
+			var student={
+				     classname:"1637",
+				     address:"昌平",
+				     school:"千峰",
+				     introduce:function(){
+				     	//alert(121342443);
+				     	return (this.classname+this.address+this.school)
+				     }
+			  };
+			student.name="xiaohong";
+			student.age=22;
+			student.friend="wangwu";
+			console.log(student);
+			console.log(student.introduce());
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

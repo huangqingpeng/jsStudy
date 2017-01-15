@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function Student(name,age,love){//
+				     this.name=name;
+				     this.age=age;
+				     this.love=love;
+			   };
+			 //Student的 __prototype__
+			Student.prototype={
+			 	     classname:"1637",
+				     adress:"昌平",
+				     school:"千峰"
+			};
+			//Student 的__prototype__的    __prototype__
+			Object.prototype.study="学习HTML5";
+			
+			console.log(Student instanceof Object);//true   创建的Student类属于Object类型
+			var student1=new Student("王小二",18,"篮球");
+			var student2=new Student("老王",22,"足球");
+			var student3=new Student("李四",25,"由于5");
+			
+			console.log(student1.school);
+			console.log(student1.study);
+			console.log(student1);
+			
+				
+			
+			   
+			   
+		</script>
+	</body>
+</html>

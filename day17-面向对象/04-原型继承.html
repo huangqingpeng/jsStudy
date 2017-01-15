@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Parent(){
+				this.gongfu=function(){
+					 console.log("gongfu");
+				}
+			}
+			
+			function Son(){
+				this.HTML=function(){
+					console.log("前端好");
+				}
+			}
+			
+			
+//			var p1=new Parent();
+//			console.log(p1);
+//			console.log(p1.gongfu());
+//			
+//			var s1=new Son();
+//			console.log(s1);
+//			console.log(s1.HTML);
+//			console.log(s1.gongfu);//undefined  Son的__proto__里没有gongfu这个方法
+			
+			var p1=new Parent();
+			console.log(p1);
+			Son.prototype=p1;//通过原型链  把	p1的方法都给Son
+		
+			var s1=new Son();
+			console.log(s1);
+			console.log(s1.HTML);
+			console.log(s1.gongfu);// gongfu
+			console.log(s1.gongfu());//undefined   函数没有返回值
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				background-color: gold;
+			}
+			.box2{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:250px;
+				left: 0;
+				background-color: green;
+			}
+			.box3{
+				width:200px;
+				height: 200px;
+				position: absolute;
+				top:600px;
+				left: 0;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">运动</button>
+		<div class="box box1"></div>
+		<script type="text/javascript" src="animate.js" ></script>
+		<script>
+			var btn = document.getElementById("btn");
+			var box1 = document.querySelector(".box1");
+			
+			btn.onclick = function(){
+				animate(box1,{width:400,height:800,left:300});
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

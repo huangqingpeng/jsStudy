@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/all.css"/>
+
+</head>
+<body>
+    <!--头部-->
+    <div class="header">
+        <a class="logo" href="https://www.jd.com">京东</a>
+        <div class="desc">欢迎注册</div>
+    </div>
+    <!--版心-->
+    <div class="container">
+    	<!--京东注册模块-->
+    	<div class="register">
+    		<!--用户名-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="userName">用&nbsp;户&nbsp;名</label>
+    				<input type="text" id="userName" placeholder="您的账户名和登录名" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--设置密码-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="pwd">设 置 密 码</label>
+    				<input type="password" id="pwd" placeholder="建议至少两种字符组合" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--确认密码-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="pwd2">确 认 密 码</label>
+    				<input type="password" id="pwd2" placeholder="请再次输入密码" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+			<!--邮箱验证-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="email">邮 箱 验 证</label>
+    				<input type="text" id="email" placeholder="请输入邮箱" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--手机验证-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="mobile">手 机 验 证</label>
+    				<input maxlength="11" type="text" id="mobile" placeholder="请输入手机号码" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--验证码-->
+    		<div class="register-box yzm error">
+    			<!--表单项-->
+    			<div class="box">
+    				<label for="code">验&nbsp;证&nbsp;码</label>
+    				<input type="text" id="code" placeholder="请输入验证码" />
+					<i></i>
+    				<a href="#" id="updateCode">abcd1</a>
+    				<input type="hidden" id="code2" value="abcd1"  />
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+
+    		<!--注册协议-->
+    		<div class="register-box xieyi">
+    			<!--表单项-->
+    			<div class="box">
+    				<input type="checkbox" id="ck" />
+    				<span>我已阅读并同意<a href="javascript:">《京东用户注册协议》</a></span>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--注册-->
+    		<button id="btn">注册</button>
+    	</div>
+    </div>
+    <script src="../js/register1.js"></script>
+</body>
+</html>

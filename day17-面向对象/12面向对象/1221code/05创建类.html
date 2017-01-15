@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function Person(n,a,g){    //
+				this.name = n;
+				this.age = a;
+				this.gender=g;
+				this.say = function(){
+					alert("我是" + this.name + "，我今年" + this.age);
+				}
+			}
+			
+			
+			
+			var p1 = new Person("李小龙",12,"男");
+			//p1.say();
+			
+			var p2 = new Person("李晨",19,"男");
+			//p2.say();
+			
+			
+			console.log(p1 instanceof Person);
+			console.log(p1 instanceof Object);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

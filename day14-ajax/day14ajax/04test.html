@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#content{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="content"></p>
+		<p>
+			<label for="userName">用户名：</label>
+			<input type="text" id="userName" />
+		</p>
+		<p>
+			<label for="pwd">密码：</label>
+			<input type="password" id="pwd" />
+		</p>
+		<button id="login">登录</button>
+		<script type="text/javascript" src="js/ajax.js">
+		</script>
+		<script type="text/javascript">
+			var content=document.getElementById("content");
+			var userName=document.getElementById("userName");
+			var pwd=document.getElementById("pwd");
+			var login=document.getElementById("login");
+			login.onclick=function(){
+				var uName=userName.value;
+				var uP=pwd.value;
+				console.log(uP);
+				console.log(uName);
+				var obj={
+					method:"post",//get
+					isAnsyc:"true",
+					url:"http://127.0.0.1:8088/day14ajax/data.php",
+					urldata:{
+						name:uName,
+						pwd:uP
+					},
+					success:function(a){
+						alert(a);
+					},
+					error:function(b){
+						alert(b);
+					}
+				};
+				ajax(obj);
+			}
+		</script>
+		
+	</body>
+</html>
+

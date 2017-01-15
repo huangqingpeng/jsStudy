@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+         邮箱  <input id="txt" type="text" value="">
+         <button id="btn"> 登录</button>
+         <script>
+             var  oInput=document.getElementById("txt");
+             var  btn=document.getElementById("btn");
+              /*
+              * 邮箱格式：hjgsdjhjfjkd @dsfsf .com/cn
+              *
+              * */
+              btn.onclick=function(){
+                  var reg=/\w{6,26}@\w{2,6}\.(com|cn)/;
+                  var value=oInput.value;
+                  var flag=reg.test(value);
+                  alert(flag);
+
+              }
+
+
+         </script>
+
+</body>
+</html>

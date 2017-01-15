@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">获取数据</button>
+		<script>
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+			    
+				var xhr;
+				if(window.XMLHttpRequest){
+					xhr = new XMLHttpRequest(); //标准
+					
+				}else{
+					xhr = new ActiveXObject("Microsoft.XMLHTTP"); //第一步 创建工具库
+				}
+			
+				
+				//第二步：建立连接
+				/*
+				 	get请求可能会产生缓存，导致不能够及时更新数据
+				 	原因就是：
+				 		get请求会把第一次请求的地址记录下来，若再次访问时，地址若是一模一样，则会把第一次记录下来的地址所缓存的结果返回。
+				 	解决get请求所产生的缓存：保证每次请求的的地址不一样
+				 */
+				var date = new Date();
+				var time = date.getTime();
+				xhr.open("get","http://127.0.0.1:8989/1215code/data.txt?new=" + time,false);
+				
+				//第三步：发送
+				xhr.send();
+				
+				//第四步，因为是同步的，所以等结果出来之后才执行以下结果
+				alert(xhr.responseText)
+			}
+		</script>
+	</body>
+</html>

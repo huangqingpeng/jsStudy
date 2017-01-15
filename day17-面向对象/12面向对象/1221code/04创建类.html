@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function Person(){  //人类
+				this.name = "Bruce.Lee";
+				this.gender = "man";
+				this.age = 18;
+				this.gongFu = function(){
+					alert("一脚、两脚、三脚   噢噢噢噢。。。。李三脚")
+				}
+				
+				
+			}
+			
+			var p1 = new Person();    // name　　ｇｅｎｄｅｒ　　ａｇｅ
+			//p1.name = "李小龙"
+			//alert(p1.name);
+			
+			var p2 = new Person();　　//name  gender age
+			//alert(p2.name);
+			
+			//从测试角度   来看  两个对象是不一样的  独立的
+			
+			alert(p1==p2)    //对象  是数据  引用类型数据   比较的是地址
+			
+			//从内存角度来判别为什么不一样     比较的是地址
+			
+			
+//			var date = new Date();
+//			
+//			var date = new Date("2116/12/21");
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

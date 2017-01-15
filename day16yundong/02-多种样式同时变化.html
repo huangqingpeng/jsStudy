@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box1{
+            width:200px;
+            height:200px;
+            position:absolute;
+            top:50px;
+            left:50px;
+            margin-bottom:50px;
+            background:red;
+            opacity:1;
+            filter: alpha(opacity=100);
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn">运动</button>
+<div id="box" class="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<script src="js/animate.js"></script>
+<script>
+    var btn=document.getElementById("btn");
+    var box1=document.getElementById("box");
+    var box2=document.getElementById("box2");
+    var box3=document.getElementById("box3");
+    btn.onclick=function(){
+        animate(box1,{left:400,top:400,height:400,width:400},20,function(){
+            animate(box1,{opacity:20},20)
+        });
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

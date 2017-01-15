@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#content {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="content"></p>
+		<p>
+			<label for="userName">用户名：</label>
+			<input type="text" id="userName" />
+		</p>
+		<p>
+			<label for="pwd">密码：</label>
+			<input type="password" id="pwd" />
+		</p>
+		<button id="login">登录</button>
+		<script type="text/javascript" src="1637bAjax.js" ></script>
+		<script>
+			var login = document.getElementById("login");
+			var userName = document.getElementById("userName");
+			var pwd = document.getElementById("pwd");
+			var content = document.getElementById("content");
+			login.onclick = function() {
+				var u = userName.value;  //用户名内容
+				var p = pwd.value;  //密码内容
+				var o = {
+					method:"post",
+					url:"http://127.0.0.1:8989/1215code/handler.php",
+					isAsyc:true,
+					data:{uName:u,pd:p},
+					success:function(a){
+						alert(a)
+					},
+					error:function(b){
+						alert(b);
+					}
+				}
+				
+				ajax(o)
+			}
+		</script>
+	</body>
+
+</html>

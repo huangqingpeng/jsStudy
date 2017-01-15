@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.side-bar {
+				width: 400px;
+				height: 100%;
+				background-color: gold;
+				position: fixed;
+				right: -400px;
+			}
+			
+			ul {
+				list-style: none;
+				position: absolute;
+				top: 20%;
+				right: 400px;
+			}
+			
+			ul li {
+				width: 40px;
+				height: 40px;
+				position: relative;
+			}
+			
+			ul li+li {
+				margin-top: 10px;
+			}
+			
+			ul li i {
+				width: 40px;
+				height: 40px;
+				display: block;
+				background-color: blue;
+				position: relative;
+			}
+			
+			ul li p {
+				width: 100px;
+				position: absolute;
+				top: 0;
+				right: -60px;
+				/*40 -60*/
+				font: bold 16px/40px "微软雅黑";
+				background-color: blue;
+				text-align: center;
+			}
+			
+			.content {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: yellow;
+				top: 0;
+				border: 1px solid red;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="side-bar" id="side_bar">
+
+			<ul id="list">
+				<li>
+					<p>京东会员</p>
+					<i></i>
+
+				</li>
+				<li class="myCar" isOpen="1">
+					<p>我的购物车</p>
+					<i></i>
+
+				</li>
+				<li>
+					<p>我的关注</p>
+					<i></i>
+
+				</li>
+			</ul>
+			<div class="content">
+				<h1>购物车</h1>
+			</div>
+		</div>
+		<script type="text/javascript" src="animate2.js" ></script>
+		<script>
+			/*
+			 	第一步：获取所要操作的节点对象
+			 	第二步：为li节点对象绑定onmouseover事件
+			 	第三步：为li节点对象绑定onmouseout事件
+			 	第四步：为购物车按钮绑定点击事件
+			 */
+			var list = document.getElementById("list");
+			list.onmouseover = function(e){
+				var _e = window.event||e;
+				var _t = _e.target||_e.srcElement;
+				//console.log(_t.tagName);
+				var li = _t.parentNode;
+				if(_t.parentNode.tagName.toLowerCase()=="li"){
+					var p = li.firstElementChild;
+					animate(p,{right:40},10)
+				}
+			}
+			
+			list.onmouseout = function(e){
+				var _e = window.event||e;
+				var _t = _e.target||_e.srcElement;
+				//console.log(_t.tagName);
+				var li = _t.parentNode;
+				if(_t.parentNode.tagName.toLowerCase()=="li"){
+					var p = li.firstElementChild;
+					animate(p,{right:-60},10)
+				}
+			}
+			
+			var myCar = document.querySelector(".myCar"); //购物车按钮
+			var side_bar = document.getElementById("side_bar");  //整体
+			myCar.flag = true;  //可以打开
+			myCar.onclick = function(){
+				var p = myCar.firstElementChild; //p节点对象
+				if(myCar.flag){ //展开
+					myCar.flag = false;
+					animate(side_bar,{right:0})
+					p.style.display = "none";  //先隐藏p节点对象
+					//clearInterval(p.termId);
+					
+				}else{//缩回
+					myCar.flag = true;
+					animate(side_bar,{right:-400})
+					/*
+					 	在这里，list的onmouseover事件可能会再执行一次，执行的时候，是要让p节点对象从-60变成40，
+					 	运动的过程，需要时间。下面直接改成-60时，上面的运动可能没有结束，所以又会从-60变成40.导致看到反常的效果。
+					 	解决方法是，在变成-60之前，先清除p的定时器。保证p没有运动。
+					 */
+					stop(p);  
+					p.style.right = "-60px";
+					p.style.display = "block";
+				}
+				
+			}
+			
+			
+			
+			
+		</script>
+	
+	</body>
+
+</html>

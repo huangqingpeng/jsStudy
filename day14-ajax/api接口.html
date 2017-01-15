@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 {
+				width: 500px;
+				margin: 0 auto;
+				background:pink;
+			}
+			#div2{
+				width: 100px;
+				height: 200px;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			h4 {
+				width: 500px;
+				height:20px
+				float:left;
+				color: red;
+				font-size: 18px;
+			}
+			
+			p {
+				width: 500px;
+				height:20px;
+				text-align: right;
+				color: blue;
+				font-size: 16px;
+				font-family: arial;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+		</div>
+		<div id="div2">
+			<input type="text" id="txt1" value="你好" />
+			<input type="button" id="bt1" value="发送" />
+		</div>
+		<script>
+			var oDiv1 = document.getElementById("div1");
+			var oTxt = document.getElementById("txt1");
+			var oBt1 = document.getElementById("bt1");
+			oBt1.onclick = function() {
+				var txt = oTxt.value;
+				oDiv1.innerHTML += "<h4>" + txt + "</h4>";
+				var xhr = new XMLHttpRequest();
+				var url = "http://apis.baidu.com/turing/turing/turing?key=879a6cb3afb84dbf4fc84a1df2ab7319&info=" + txt + "&userid=eb2edb736";
+				//var url="http://apis.baidu.com/apistore/idservice/id?id="+txt;
+				xhr.open("get", url, true);
+				xhr.setRequestHeader("apikey","45d8173dfc35ce17924e1141a441258e");
+				//xhr.setRequestHeader("apikey", "45d8173dfc35ce17924e1141a441258e");
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						if(xhr.status == 200) {
+							console.log(xhr.responseText);
+							console.log(typeof xhr.responseText);
+							var oBdata = JSON.parse(xhr.responseText);
+							console.log(oBdata);
+							oDiv1.innerHTML += "<p>" + oBdata.text + "</p>";
+                          // var oBdata = JSON.parse(xhr.responseText);
+						   //console.log(oBdata);
+						   //oDiv1.innerHTML += "<p>身份证地址：" + oBdata.retData.address + "</p>";
+						} else {
+							alert("未找到服务")
+						}
+					}
+				}
+				xhr.send();
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var a = 123;
+			function fn(a){
+				//var a;  //undefined
+				//在定义函数时，形参就相当于在函数中声明了变量 var a;
+				alert(a);  //123     undefined
+				a = 456;
+				alert(a);//456   456
+			}
+			fn();
+			alert(a);//456    123
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

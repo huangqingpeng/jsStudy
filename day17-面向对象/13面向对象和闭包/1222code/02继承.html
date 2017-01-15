@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	父类
+			 */
+			function Parent(){
+				this.gongFu = function(){
+					alert("老子的功夫")
+				}
+			}
+			
+			/*
+			 	子类
+			 */
+			function Son(){
+				this.h5 = function(){
+					alert("前端大法好")
+				}
+			}
+			
+			
+			var  fu = new Parent();  //父对象
+			//fu.gongFu();
+			
+			Son.prototype = fu;  //子的原型指向父对象，此时就产生父子情
+			
+			var zi = new Son();
+			console.log(zi);
+			//zi.h5();
+			zi.gongFu();
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

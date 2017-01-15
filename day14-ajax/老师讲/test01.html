@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">获取数据</button>
+		<script>
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var xhr = new XMLHttpRequest(); //第一步 创建工具库
+				
+				//第二步：建立连接
+				xhr.open("get","http://127.0.0.1:8989/1215code/data.txt",true);
+				
+				//第三步：发送
+				xhr.send();
+				
+				//第四步：监听响应
+				xhr.onreadystatechange = function(){
+					//xhr.readyState  0 1 2 3 4
+					if(xhr.readyState==4){  //http响应包已经全部得到
+						//xhr.status      200  ok
+						if(xhr.status==200){ //浏览器已经完全解析http响应包
+							//xhr.responseText   得到响应的内容
+							alert(xhr.responseText)
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

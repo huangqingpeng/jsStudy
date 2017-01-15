@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function zhanan() {
+				var xiaosan = 249;
+
+				function xifu() { //引用数据
+					xiaosan++;
+					alert(xiaosan);
+				}
+
+				return xifu;
+			}
+
+			//需要访问函数内部的变量
+			var wj = zhanan();
+			wj();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

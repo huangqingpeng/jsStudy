@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	Object
+			 	所有的对象都直接或间接的继承了根类型对象
+			 	函数名.prototype     原型对象
+			 */
+			//alert(Object);
+			Object.prototype.sayLove = function(){
+				alert("天使守护你 ❤❤❤❤❤❤")
+			}
+			
+			function TianShi(n,a){
+				this.name = n;
+				this.age = a;
+				
+			}
+			
+			
+			
+			
+			var t1 = new TianShi("加百利",18); 
+			// t1 instanceof  TianShi   //true
+			//t1  instanceof  Object    //true
+			
+			//t1.sayLove();
+			
+			var date = new Date();
+			//date instanceof Object  true;
+			date.sayLove();
+			
+			//console.log(t1.__proto__  == TianShi.prototype)
+			
+			console.log(t1)
+			
+			
+			//t1  	找saylove
+			//↓   __proto__  Tinashi.prototype
+			//Tinashi.prototype
+			//↓		Tinashi.prototype.__proto_     Object.prototype 
+			//Object.prototype
+			//↓
+			//sayLove
+			
+			//原型链  
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

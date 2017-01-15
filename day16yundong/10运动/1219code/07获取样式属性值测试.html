@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 200px;
+				background-color: blue;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script>
+			/*
+				获取任意【节点对象】的任意的样式【属性】的值 
+				dom  节点对象
+				pName  样式属性名  "aaa"    
+			*/
+			function getStyleValue(dom, pName) {
+				if (window.getComputedStyle) { //标准模式
+					return window.getComputedStyle(dom, null)[pName];
+				} else { //IE低版本
+					//dom.currentStyle     样式对象
+					return dom.currentStyle[pName];
+				}
+			}
+			
+			var box = document.getElementById("box");
+			alert(getStyleValue(box,"height"));
+			
+		</script>
+	</body>
+
+</html>
