@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			li{
+				list-style:none;
+			}
+			a{
+				text-decoration: none;
+			}
+			/*#box{
+				margin:0 auto;
+				width:1200px;
+				margin-top:30px;
+			}*/
+			#nav-wrap{
+				width:100%;
+				height:30px;
+				margin-top:30px;
+				background: #4682B4;
+				min-width: 1200px;
+			}
+			#nav{
+				width:1200px;
+				height:30px;
+				margin:0 auto;
+				font-size: 14px;
+				/*padding-left:50px;*/
+			}
+			.all_goods{
+				float:left;
+				width:240px;
+				background: red;
+				line-height: 30px;
+				text-align: center;
+				cursor: pointer;
+				color:#fff;
+			}
+			#nav ul{
+				float:left;
+				height:30px;
+			}
+			#nav ul li{
+				float:left;
+				padding:0 30px;
+				background: #4682B4;
+				line-height: 30px;
+				text-align: center;
+			}
+			#nav ul li a{
+				color:#fff;
+			}
+			#select-wrap{
+				margin:0 auto;
+				width:1200px;
+			}
+			#selector{
+				float:left;
+				width:1040px;
+				overflow: hidden;
+			}
+			#selector_box{
+				float:left;
+			}
+			
+			.slide_box{
+				width:240px;
+				overflow: hidden;
+				background:#f0f0f0;
+			}
+			.list{
+				height:120px;
+				padding-bottom: 10px;
+				padding:0 5px;
+			}
+			.list p{
+				height:40px;
+				width:240px;
+				line-height: 40px;
+				color:#666;
+			}
+			.list a{
+				float:left;
+				display:block;
+				margin:4px;
+				font-size: 14px;
+				color:#999;
+				padding:4px;
+			}
+			.list span a{
+				height:20px;
+				line-height: 20px;
+				background:#FFA500;
+			}
+			.active{
+				background: #bbb;
+			}
+			#selector_content{
+				float:left;
+				width:800px;
+			}
+			.content{
+				height:720px;
+				width:800px;
+				background:pink;
+				display: none;
+			}
+			.show{
+				display:block;
+			}
+			/**/
+			.content-pink{
+				width:800px;
+				overflow: hidden;
+			}
+			.content-pink h4{
+				float:left;
+				width:120px;
+				height:60px;
+				line-height: 60px;
+				text-align: right;
+				background:#bbb;
+				padding-right:20px;
+			}
+			.content-pink ul{
+				float:left;
+				padding:20px 10px;
+			}
+			.content-pink ul li{
+				float:left;
+				/*height:*/
+				padding:0 20px;
+				border-right: 1px solid #f0f0f0;
+			}
+			.content-pink ul .border0{
+				border:0;
+			}
+			.content-pink ul a{
+				color:#fff;
+				font-size:16px;
+			}
+			.content-pink ul span a{
+				color:#FFA500;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="nav-wrap">
+				<div>
+					<div id="nav">
+						<p class="all_goods">全部商品分类</p>
+						<ul>
+							<li><a href="javascriipt:;">首页</a></li>
+							<li><a href="javascriipt:;">爆品特卖</a></li>
+							<li><a href="javascriipt:;">葡萄酒馆</a></li>
+							<li><a href="javascriipt:;">洋酒馆</a></li>
+							<li><a href="javascriipt:;">团购</a></li>
+							<li><a href="javascriipt:;">清仓</a></li>
+							<li><a href="javascriipt:;">秒拍</a></li>
+							<li><a href="javascriipt:;">清仓</a></li>
+							<li><a href="javascriipt:;">酒仙独家</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			<div id="select-wrap">
+				<div id="selector">
+					<div id="selector_box">
+						<ul class="slide_box">
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+							<li class="list">
+								<p>一键选酒</p>
+								<span class="bgcolor"><a href="javascriipt:;">整箱购</a></span>
+								<a href="javascriipt:;">婚宴酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">大坛专供</a></span>
+								<a href="javascriipt:;">礼品酒</a>
+								<a href="javascriipt:;">年份老酒</a>
+								<span class="bgcolor"><a href="javascriipt:;">各地名酒</a></span>
+							</li>
+						</ul>
+					</div>
+					<div id="selector_content">
+						<div class="content">
+							<div class="content-pink">
+								<h4><span>特色会场</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><span ><a href="javascript:;">超级新品日品酒</a></span></li>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>精选会场</span></h4>
+								<ul>
+									<li><a href="javascript:;">各地名酒</a></li>
+									<li><span><a href="javascript:;">香型选酒</a></span></li>
+									<li><span ><a href="javascript:;">新品会场</a></span></li>
+									<li class="border0"><span><a href="javascript:;">宴请用酒</a></span></li>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>特色专区</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><span ><a href="javascript:;">超级新品日品酒</a></span></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><a href="javascript:;">清仓特卖</a></li>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>企业用酒</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><span ><a href="javascript:;">超级新品日品酒</a></li></span>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>特色会场</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><span ><a href="javascript:;">超级新品日品酒</a></li></span>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>特色会场</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><span ><a href="javascript:;">超级新品日品酒</a></li></span>
+								</ul>
+							</div>
+							<div class="content-pink">
+								<h4><span>特色会场</span></h4>
+								<ul>
+									<li><a href="javascript:;">炫酷品牌日</a></li>
+									<li><a href="javascript:;">清仓特卖</a></li>
+									<li class="border0"><span ><a href="javascript:;">超级新品日品酒</a></li></span>
+								</ul>
+							</div>
+						</div>
+						<div id="select_pink" class="content">白酒加厚款发动机各罗斯福</div>
+						<div id="select_pink" class="content">葡萄酒极乐空间反馈反馈</div>
+						<div id="select_pink" class="content">洋酒的非官方复合肥</div>
+						<div id="select_pink" class="content">啤酒第三方的份上如果他</div>
+						<div id="select_pink" class="content">时尚第三方第三方的</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oSelector=document.getElementById("selector");
+			var selectorBox=document.getElementById("selector_box");
+		    var slideBox=document.getElementsByClassName("slide_box")[0];
+		    var liList=document.getElementsByClassName("list");
+		    var selectContent=document.getElementsByClassName("content");
+		    var current;
+		    for(var i=0;i<liList.length;i++){
+		    	liList[i].index=i;
+		    	liList[i].onmouseenter=function(){
+		    		if(current){
+		    			current.className="list";
+		    	        selectContent[current.index].className="content";
+		    		}
+		    		current=this;
+		    		current.className="list active";
+		    		selectContent[current.index].className="content show";
+		    	}
+		    }
+		    oSelector.onmouseleave=function(){
+		    	current.className="list";
+		    	selectContent[this.index].className="content active";
+		    }
+		</script>
+	</body>
+</html>

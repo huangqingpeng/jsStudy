@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.creatdiv{
+				width:5px;
+				height:5px;
+				background:blue;
+				position:absolute;
+			}
+			#div1{
+				width:20px;
+				height:20px;
+				background:red;
+				position:absolute;
+				left:0;
+				top:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		    var arr=[];
+		    var oDiv1=document.getElementById("div1");
+			oDiv1.onmousedown=function(e1){
+				 var _e1=e1||window.event;  
+				 _e1.preventDefault();
+				document.onmousemove=function(e){
+					var _e=e||window.event;
+					var x=_e.clientX;
+					var y=_e.clientY;
+					//console.log(x+" "+y);
+					var oDiv=document.createElement("div");
+					oDiv.className="creatdiv";
+					oDiv.style.left=x+"px";
+					oDiv.style.top=y+"px";
+					document.body.appendChild(oDiv);
+					arr.push(oDiv);
+					console.log(arr);
+				 }	
+				
+			}
+		    var timer;
+		    var m=0;
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				
+				if(arr.length){
+					timer=setInterval(function(){
+						oDiv1.style.left=arr[m].offsetLeft+"px";
+						oDiv1.style.top=arr[m].offsetTop+"px";
+						arr[m].style.display="none";
+						//arr.removeChild(arr[0]);
+						m++;
+						console.log(m);
+						if(m==arr.length){
+							//  当m的值和arr的长度相等时，停定时器
+							// 变量同时初始化
+							clearInterval(timer);
+							m=0;
+							arr=[];
+						}
+					},50)
+				}
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background: #f0f0f0;
+			}
+			
+			#tab {
+				margin: 0 auto;
+				width: 1004px;
+				overflow: hidden;
+				margin-top: 30px;
+			}
+			
+			.nav {
+				width: 1004px;
+				height: 30px;
+				background: #a0a0a0;
+			}
+			
+			.list {
+				list-style: none;
+				float: left;
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border-right: 1px solid #e5e5e5;
+			}
+			
+			.list a {
+				text-decoration: none;
+				color: #666;
+			}
+			
+			.active {
+				background: #fff;
+				border-top: 2px solid #FF0000;
+			}
+			
+			#border0 {
+				border-right: 0;
+			}
+			
+			#content-box {
+				width: 1004px;
+				height: 1000px;
+				overflow: hidden;
+			}
+			
+			.content {
+				width: 1004px;
+				height: 450px;
+				background: #fff;
+				display:none;
+				padding:20px;
+				
+			}
+			.content dl{
+				float:left;
+				padding:10px;
+				position:relative;
+			}
+			.buy{
+				width:50px;
+				height:40px;
+				padding: 10px 0;
+				/*line-height: 60px;*/
+				text-align: center;
+				background:pink;
+				font-size: 14px;
+				position:absolute;
+				right:5px;
+				top:5px;
+				color:#fff;
+			}
+			.content dd{
+				color:red;
+				font-size:14px;
+			}
+			.content dd a{
+				color:#999;
+				text-decoration: none;
+			}
+			.content dd a:hover{
+				color:red;
+				text-decoration:underline;
+			}
+			.show{
+				display:block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="tab">
+			<ul class="nav">
+				<li class="list active">
+					<a href="javascript:;">疯狂抢购</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">热卖推荐</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">猜你喜欢</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">热卖推荐</a>
+				</li>
+				<li id="border0" class="list ">
+					<a href="javascript:;">新品上架</a>
+				</li>
+			</ul>
+			<div id="content-box">
+				<div class="content show">
+					<dl>
+						<dt><img src="img/1.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥49</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/2.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥99</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/3.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/5.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥149</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/9.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥649</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/9.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/10.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+				</div>
+				<div class="content">
+					<dl>
+						<dt><img src="img/10.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥49</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/9.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥99</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥149</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥649</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/10.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+				</div>
+				<div class="content">
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥49</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥99</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/5.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/5.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥149</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/5.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥649</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/10.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+				</div>
+				<div class="content">
+					<dl>
+						<dt><img src="img/1.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥49</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/1.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥99</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/3.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/3.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/3.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/6.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥149</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥649</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/4.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+				</div>
+				<div class="content">
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥49</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥99</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥149</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥949</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥649</dd>
+						<p class="buy">爆款<br>热卖</p>
+					</dl>
+					<dl>
+						<dt><img src="img/9.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥349</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/8.jpg"/></dt>
+						<dd><a href="javascript:;">【汾酒特卖】52度汾酒集团</a></dd>
+						<dd>￥249</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var nav = document.querySelectorAll(".nav")[0];
+			var oList = document.querySelectorAll(".list");
+			var oContent = document.querySelectorAll(".content");
+			for(var j = 0; j < oList.length; j++) {
+				oList[j].index=j;
+				oList[j].onmouseenter = function() {
+					for(var i = 0; i < oList.length; i++) {
+						oList[i].className = "list";
+						oContent[i].className="content"
+					}
+                    this.className="list active"
+                    oContent[this.index].className="content show";
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+
+</html>

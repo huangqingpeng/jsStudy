@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+  <style>
+    #div1{width:50px;height:500px;background:red;display:none;position:absolute;}
+  </style>
+</head>
+
+<body>
+   <div id="div1"></div>
+   <script>
+        var oDiv1=document.getElementById("div1");
+		//首先要阻止鼠标右键菜单
+        document.oncontextmenu=function(event){
+			event=event||window.event;//解决兼容问题，阻止默认行为
+			if(event.preventDefault){//阻止鼠标默认行为
+				event.preventDefault()
+				}else{
+					returnValue=false;
+					}
+			var oDiv1=document.getElementById("div1");
+			    oDiv1.style.display="block";  
+				oDiv1.style.left=event.clientX+"px";//鼠标点击哪里就显示在哪里	
+				oDiv1.style.top=event.clientY+"px";	
+		}
+		
+		document.addEventListener("click",function(){
+			oDiv1.style.display="none"; 
+			},false)//添加事件，点击屏幕的时候，div1消失（用的是监听的方法）
+		oDiv1.addEventListener("click",function(){
+			//点击自己的时候不消失,也即是阻止冒泡
+			if(event.stopPropagation){
+				event.stopPropagation();
+				}else{
+					cancelBubble=true;
+					}
+			
+			},false)
+   </script>
+</body>
+</html>

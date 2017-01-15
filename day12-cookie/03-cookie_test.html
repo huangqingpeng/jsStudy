@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/cookie_object.js">
+		</script>
+	</head>
+	<body>
+		<input type="button"  id="adddata" value="增加cookie"/>
+		<input type="button"  id="setdata" value="修改cookie" />
+		<input type="button"  id="getdata" value="获取cookie" />
+		<input type="button"  id="deldata" value="删除cookie" />
+		<script type="text/javascript">
+			var addData=document.getElementById("adddata");
+			var setData=document.getElementById("setdata");
+			var getData=document.getElementById("getdata");
+			var delData=document.getElementById("deldata");
+			//储存Cookie的增删，改查的对象
+			addData.onclick=function(){
+				alert(1);
+				var date=new Date();
+				date.setDate(date.getDate()+7);
+				cookieObjectFunction.setCookie({
+					name:"usename",
+					value:"huang",
+					path:date
+				})
+			}
+			setData.onclick=function(){
+				alert(2);
+				var date=new Date();
+				date.setDate(date.getDate()+11);
+				cookieObjectFunction.setCookie({
+					name:"usename",
+					value:"wang",
+					path:date
+				})
+			}
+			getData.onclick=function(){
+				var value=cookieObjectFunction.getCookie("usename")
+				console.log(value);
+			}
+			delData.onclick=function(){
+				alert(4);
+				cookieObjectFunction.delCookie("usename")
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

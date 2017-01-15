@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				background: blue;
+				height:30px;
+				width:300px;
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		
+		<script type="text/javascript">
+			var oU=document.getElementsByTagName("ul")[0];
+			var oList=document.getElementsByTagName("li");
+			//事件委托
+			oU.onclick=function(e){
+				//_e为事件对象，window.event是IE的事件对象
+				var _e=e||window.event;//兼容IE
+				//target是事件委托，返回触发此事件的节点对象
+				var _t=_e.target||e.srcElement;//兼容IE
+				//alert(_t.tagName)
+				//alert(_t.innerHTML);
+				if(_t.tagName.toLocaleLowerCase()=="li"){
+					//alert("11");
+					alert(_t.innerHTML);
+				}
+			}
+			document.onclick=function(e){
+				console.log(e);
+			}
+		</script>
+	</body>
+</html>

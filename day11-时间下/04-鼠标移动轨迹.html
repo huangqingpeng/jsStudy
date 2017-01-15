@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.creatdiv{
+				width:5px;
+				height:5px;
+				background:blue;
+				position:absolute;
+			}
+			#div1{
+				width:20px;
+				height:20px;
+				background:red;
+				position:absolute;
+				left:0;
+				top:0;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+	   <div id="div1"></div>
+	   <script type="text/javascript">
+	       var oDiv=document.getElementById("div1");
+	       var arr=[];
+	       var timer;
+	       var index=0;
+	       var flag=false;
+	       oDiv.onmousedown=function(){
+	         	flag=!flag;
+	       	   document.onmousemove=function(e){
+	       	   	var _e=e||window.event;
+	       	   	var x=_e.clientX;
+	       	   	var y=_e.clientY;
+	       	   	var oDiv1=document.createElement("div");
+	       	   	   oDiv1.className="creatdiv";
+	       	   	   oDiv1.style.left=x+"px";
+	       	   	   oDiv1.style.top=y+"px";
+	       	   	   document.body.appendChild(oDiv1);
+	       	   	   var obj={
+	       	   	   	     left:x,
+	       	   	   	     top:y
+	       	   	   }
+	       	   	   arr.push(obj);
+	       	   }
+	       }
+	       document.onmouseup=function(){
+	       	    document.onmousemove="";
+	       	    var divs=document.getElementsByClassName("creatdiv");
+	       	    if(arr.length){
+	       	    	 timer=setInterval(function(){
+		       	    	var obj=arr[index];
+		       	    	oDiv.style.left=obj.left+"px";
+		       	    	oDiv.style.top=obj.top+"px";
+		       	    	//divs[0].className="";
+		       	    	divs[index].style.display="none";
+		       	    	index++;
+		       	    	if(divs.length==index){
+	       	    		    clearInterval(timer);
+	       	    		    arr=[];
+	       	    		    index=0;
+	       	    	    }
+		       	    },50)
+	       	    	 
+	       	    }
+	       	   
+	       }
+	   </script>
+	   
+	</body>
+</html>

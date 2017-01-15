@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			addevent(document,"mousewheel",fn1);
+			addevent(document,"DOMMouseScroll",fn1);//火狐兼容
+			function fn1(){
+				alert(2);
+			}
+
+
+             
+			/*确定滚轮的滚动方向 解决兼容
+			 * detial 火狐
+			 * wheelDelta IE和谷歌
+			 * */
+			function mouseWheel(e){
+				if(e.detail==-3||e.wheelDelta==120){
+					//鼠标滚轮向上滚动
+					alert("向上滚动");
+				}else{
+					alert("向下滚动");
+					//鼠标滚轮向下滚动
+				}
+			}
+			
+//			addevent(document,"mousewheel",mouseWheel);
+//			addevent(document,"DOMMouseScroll",mouseWheel);//火狐兼容
+			
+			/*
+			 * 绑定事件,兼容处理
+			 事件目标：oBjNode
+			 事件处理程序：fn
+			 事件名称：eventName
+			 */
+			function addevent(oBjNode,eventName,fn){
+				if(oBjNode.addEventListener){
+					oBjNode.addEventListener(eventName,fn);
+				}else{
+					oBjNode.attachEvent("on"+eventName,fn);//兼容ie
+				}
+			}
+		</script>
+	</body>
+</html>

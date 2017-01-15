@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			  /*
+		 * 绑定事件,兼容处理
+		 事件目标：oBjNode
+		 事件处理程序：fn
+		 事件名称：eventName
+		 */
+		
+			function addevent(oBjNode,eventName,fn){
+				if(oBjNode.addEventListener){
+					oBjNode.addEventListener(eventName,fn);
+				}else{
+					oBjNode.attachEvent("on"+eventName,fn);//兼容ie
+				}
+			}
+		function fn1(){
+			alert(1);
+		}
+			addevent(document,"mousewheel",fn1);
+			addevent(document,"DOMMouseScroll",fn1);//火狐兼容
+//			function fn1(){
+//				alert(2);
+//			}
+		addevent(document,"mousewheel",fn1);//ie 和谷歌
+ 		addevent(document,"DOMMouseScroll",fn1);//火狐
+ 		addevent(document,"mousewheel",fn1);
+		addevent(document,"DOMMouseScroll",fn1);
+		</script>
+	</body>
+</html>

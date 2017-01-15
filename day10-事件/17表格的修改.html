@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	table{
+		width:800px;
+	}
+	div{
+		border: 1px solid #CCCCCC;
+		padding: 10px;
+		margin: 10px;
+		text-align: center;
+	}
+	div p+p{
+		margin-top:10px ;
+	}
+
+ </style>
+
+	
+ </head>
+ <body>
+ 	<div>
+ 		<p><label for="userName">姓名</label>：<input id="userName" type="text" /></p>
+ 		<p><label for="userName">年龄</label>：<input id="age" type="text" /></p>
+ 		<p><label for="userName">性别</label>：<input id="gender" type="text" /></p>
+ 		<p><button id="add">添加</button></p>
+ 	</div>
+	<table border="1">
+		<thead>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+			<th>操作</th>
+		</thead>
+		<tbody id="tb">
+			<tr>
+				<td>小明</td>
+				<td>18</td>
+				<td>男</td>
+				<td class="control">
+					<button class="del">删除</button>
+					<button class="edit">修改</button>
+				</td>
+			</tr>
+			<tr>
+				<td>小明</td>
+				<td>16</td>
+				<td>男</td>
+				<td class="control">
+					<button class="del">删除</button>
+					<button class="edit">修改</button>
+				</td>
+			</tr>
+			<tr>
+				<td>小明</td>
+				<td>13</td>
+				<td>男</td>
+				<td class="control">
+					<button class="del">删除</button>
+					<button class="edit">修改</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript">
+		var names=document.getElementById("userName");
+		var age=document.getElementById("age");
+		var gender=document.getElementById("gender");
+		var add=document.getElementById("add");
+		var tb=document.getElementById("tb");
+		add.onclick=function(){
+			var tr=document.createElement("tr");
+			tr.innerHTML="<td>"+names.value +"</td>"+
+			             "<td>"+age.value +"</td>"+
+			             "<td>"+gender.value +"</td>"+
+			             "<td class=\'control\'><button class='del'>删除</button> <button class='edit'>修改</button> </td>";
+			tb.appendChild(tr);	
+			names.value="";
+			age.value="";
+			gender.value="";
+		}
+		//事件委托的方式，进行删除和修改的操作，给tbody添加事件
+		tb.onclick=function(e){
+			var _e=e||window.event;//事件对象
+			var _t=_e.target||_e.srcElement;//事件对象下的委托属性
+			if(_t.className=="del"){//删除表格
+				tb.removeChild(_t.parentNode.parentNode);
+			}
+			if(_t.className=="edit"){//修改表格内容
+				//var oInput=document.createElement("input");
+				//oInput.value=
+				var parents=_t.parentNode.parentNode;//被点击的按钮的父元素，也即是tr
+				var tds=parents.children;
+				if(_t.innerHTML=="修改"){//修改表格内容
+						_t.innerHTML="确定";
+						parents.onclick=function(e){
+							var _evt=e||window.event;//事件对象
+							var _tvt=_evt.target||_evt.srcElement;//事件对象下的委托属性
+							var oInput=document.createElement("input");
+							if(_tvt.tagName.toLowerCase()=="td"&&_tvt.className!="control"){
+							   oInput.value=_tvt.innerHTML;
+							   _tvt.innerHTML="";
+							   _tvt.appendChild(oInput);
+							}
+						}
+				}else{//确定    确认修改内容
+					_t.innerHTML="修改";
+					for(var i=0;i<tds.length-1;i++){
+						var txt=tds[i].firstChild.value;
+						if(txt){//子元素是否有input，有input就把改变过的
+					    	//tds[i].innerHTML="";
+					    	tds[i].innerHTML=txt;
+					    	parents.onclick="";
+						}	
+					}	
+				}  
+			}
+		}
+		
+	</script>
+ </body>
+</html>

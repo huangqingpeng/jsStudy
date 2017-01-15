@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    var date=new Date();
+		    date.setDate(date.getDate()+7);
+			document.cookie="name=huang;expires="+date;
+			var key=encodeURIComponent("a====b");//由于cookie不能读取这些字符，只有通过编码后才能存储
+			var value=encodeURIComponent("=;,..l;j");//
+			document.cookie=key + "=" + value + ";expires=" + date;
+			console.log(getCookie(key));//打印的是编码过的，不是我们需要的字符，需要解码
+			var v=getCookie(key);
+			console.log(decodeURIComponent(v));
+			//获取cookie值
+			function getCookie(key){
+				var str=document.cookie;//获取cookie
+				var arr=str.split("; ");//用分号和空格分割，转化成数组
+				for(var i=0;i<arr.length;i++){
+					var arr1=arr[i].split("=");
+					if(key==arr1[0]){
+						var value=arr1[1]
+						return value;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

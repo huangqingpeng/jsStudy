@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			<label for="useName">用户名</label>
+		    <input type="text" name="useName" id="useName" value="" />
+		</p>
+		<p>
+			<label for="pwd">密码</label>
+		    <input type="text" name="useName" id="pwd" value="" />
+		</p>
+		<p>
+			<input type="checkbox" id="ck" />
+		    <label for="ck">记住密码</label>
+		</p>
+		<button id="btn">登录</button>
+		<button id="btn2">清除已经记住的用户名</button>
+		<script type="text/javascript">
+		    var useName=document.getElementById("useName");
+		    var pwd=document.getElementById("pwd");
+		    var ck=document.getElementById("ck");
+		    var oBtn=document.getElementById("btn");
+		    var str=getCookie("useName");
+		     if(str){
+		     	useName.value=str;
+		     }
+		    oBtn.onclick=function(){
+		    	if(ck.checked){
+		    		var txt=useName.value;
+		    		var date=new Date();
+		    	    date.setDate(date.getDate()+7);
+		    		document.cookie="useName="+txt+";expires="+date;
+		    	}
+		    }
+
+		    //获取cookie值
+			function getCookie(key){
+				var str=document.cookie;//获取cookie
+				var arr=str.split("; ");//用分号和空格分割，转化成数组
+				for(var i=0;i<arr.length;i++){
+					var arr1=arr[i].split("=");
+					if(key==arr1[0]){
+						var value=arr1[1]
+						return value;
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>

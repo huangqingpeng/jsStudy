@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin:0;
+			}
+			#side-box{
+				margin:20px auto;
+				width:1000px;
+			}
+			#side{
+				float:left;
+				width:200px;
+				background:#666;
+				padding:10px 0;
+			}
+			.list{
+				list-style: none;
+				height:30px;
+				font-size: 14px;
+				line-height: 30px;
+				padding: 0 10px;
+			}
+			.list a{
+				text-decoration: none;
+				color:#fff;
+			}
+			
+			.active{
+				width:180px;
+				height:30px;
+				background:#e5e5e5;
+			}
+			.active a{
+				color:red;
+			}
+			#content-box{
+				width:600px;
+				height:480px;
+				float:left;
+				/*background:pink;*/
+			}
+			.content{
+				width:600px;
+				height:480px;
+				display:none;
+				background:pink;
+			}
+			#content-box .show{
+			 	width:600px;
+				height:480px;
+				background:pink;
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="side-box">
+			<ul id="side">
+				<li class="list">
+					<a href="javascript:;">家用电器</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">手机  /</a>
+					<a href="javascript:;">运营商 /</a>
+					<a href="javascript:;">数码</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">电脑办公</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">家居 /</a>
+					<a href="javascript:;">家具 /</a>
+					<a href="javascript:;">家电 /</a>
+					<a href="javascript:;">厨具</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">男装 /</a>
+					<a href="javascript:;">女装 /</a>
+					<a href="javascript:;">童装 /</a>
+					<a href="javascript:;">内衣 </a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">个胡化妆 /</a>
+					<a href="javascript:;">清洁用品 /</a>
+					<a href="javascript:;">衣服</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">运动 /</a>
+					<a href="javascript:;">户外/</a>
+					<a href="javascript:;">钟表</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">汽车 /</a>
+					<a href="javascript:;">汽车用品</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">母婴 /</a>
+					<a href="javascript:;">玩具乐器</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">食品 /</a>
+					<a href="javascript:;">酒类 /</a>
+					<a href="javascript:;">生鲜 /</a>
+					<a href="javascript:;">特产</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">医疗保健</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">图书 /</a>
+					<a href="javascript:;">音像 /</a>
+					<a href="javascript:;">电子书</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">支票 /</a>
+					<a href="javascript:;">旅行 /</a>
+					<a href="javascript:;">充值 /</a>
+					<a href="javascript:;">票务</a>
+				</li>
+				<li class="list">
+					<a href="javascript:;">理财 /</a>
+					<a href="javascript:;">众筹 /</a>
+					<a href="javascript:;">白条 /</a>
+					<a href="javascript:;">保险</a>
+				</li>
+				
+			</ul>
+			<div id="content-box">
+				<div class="content">
+					1
+				</div>
+				<div class="content">2
+				</div>
+				<div class="content">3
+				</div>
+				<div class="content">4
+				</div>
+				<div class="content">5
+				</div>
+				<div class="content">6
+				</div>
+				<div class="content">7
+				</div>
+				<div class="content">8
+				</div>
+				<div class="content">9
+				</div>
+				<div class="content">10
+				</div>
+				<div class="content">11
+				</div>
+				<div class="content">12
+				</div>
+				<div class="content">13
+				</div>
+				<div class="content">14
+				</div>
+				<div class="content">15
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		    var sideBox=document.getElementById("side-box");
+			var oSide=document.getElementById("side");
+			var oList=document.getElementsByClassName("list");
+			var contentList=document.getElementsByClassName("content");
+			var flag;
+//				for(var i=0;i<oList.length;i++){
+//					oList[i].index=i;
+//					oList[i].onmouseenter=function(){
+//						if(flag){
+//							flag.className="list";
+//							contentList[flag.index].style.display="none";
+//						}
+//						flag=this;
+//						flag.className="list active";
+//						contentList[flag.index].style.display="block";
+//					}
+//				}
+
+//			sideBox.onmouseleave=function(){
+//		    	flag.className="list";
+//		    	contentList[flag.index].style.display="none";
+//		    }
+            
+            /*
+             * 事件委托方式  ，侧边栏
+             * 需注意：    事件委托的方式时，绑定事件onmouseover，事件委托利用的是冒泡原理
+             *        因为onmouseenter，是阻止冒泡的，委托事件是绑在父元素上，故不能冒泡到父元素上
+             */
+            var current;
+            oSide.onmouseover=function(e){
+            	//alert(1);
+            	var _e=window.event||e;
+            	var _t=_e.target||_e.srcElement;
+            	//alert(_t.tagName.toLocaleLowerCase())
+	            if(_t.className=="list"){
+	            	//alert(1);
+            		for(var i=0;i<oList.length;i++){
+	        			oList[i].index=i;
+            		    oList[i].className="list";
+            		    contentList[i].className="content";
+	            	}
+            		_t.className="list active";
+            		console.log(_t.index);
+            		current=_t.index;
+            		contentList[current].className="content show";
+            	}
+            }
+			sideBox.onmouseleave=function(){ 
+			     contentList[current].className="content";
+			     oList[current].className="list";
+			}
+
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

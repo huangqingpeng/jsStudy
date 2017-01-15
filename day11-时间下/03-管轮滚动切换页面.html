@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	html,body{
+		width:100%;
+		height:100%;
+		overflow:hidden;
+	}
+	.big-box{
+		width:100%;
+		height:500%;   /*10000px*/  
+		text-align:center;
+		position:absolute;
+	}
+	.big-box .item{
+		/*对于item项，big-bog就是一个100%的高度*/
+		height:20%;
+	}
+	.big-box .item1{
+		background-color:red;
+	}
+	.big-box .item2{
+		background-color:blue;
+	}
+	.big-box .item3{
+		background-color:purple;
+	}
+	.big-box .item4{
+		background-color:gold;
+	}
+	.big-box .item5{
+		background-color:pink;
+	}
+	.controls{
+		list-style:none;
+		position:fixed;
+		top:20%;
+		right:20px;
+
+	}
+	.controls li{
+		width:50px;
+		height:50px;
+		font:bold 22px/50px "宋体";
+		text-align:center;
+		background-color:#000;
+		color:#fff;
+		cursor:pointer;
+	}
+	.controls li+li{
+		margin-top:5px;
+	}
+	.controls li.active{
+		background-color:#fff;
+		color:red;
+	}
+
+  </style>
+  <script></script>
+ </head>
+ <body>
+	<!--存放5个屏幕的大盒子-->
+	<div class="big-box" id="bigBox">
+		<div class="item item1"><h1>屏幕1</h1></div>
+		<div class="item item2"><h1>屏幕2</h1></div>
+		<div class="item item3"><h1>屏幕3</h1></div>
+		<div class="item item4"><h1>屏幕4</h1></div>
+		<div class="item item5"><h1>屏幕5</h1></div>
+	</div>
+	<!--控制按钮-->
+	<ul class="controls">
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+ 	<script type="text/javascript">
+   	    var bigBox=document.getElementById("bigBox");
+   	    var oList=document.getElementsByTagName("li");
+   	     var index=0;
+   	    var flag=true;
+   	    var _height=document.body.clientHeight;
+   		//鼠标滚轮滚动，让页面切换
+   		function Wheel(e){
+   			if(flag){
+   				flag=false;
+   				console.log(1);
+	   			
+	   			if(e.wheelDelta==120||e.detail==-3){
+	   				//alert(1);
+	   				//滚轮向下滚动
+	   				index--;
+	   				if(index<0){
+	   					index=0;
+	   				}
+	   				
+	   			}else{
+	   				//滚轮向上滚动
+	   				index++;
+	   				if(index>4){
+	   					index=4;
+	   				}
+	   			}
+	   			for(var i=0;i<oList.length;i++){
+	   				oList[i].className="";
+	   			}
+	   			bigBox.style.top=-index*_height+"px";
+	   			oList[index].className="active";
+   			    setTimeout(function(){
+	   				flag=true;
+	   			},1000)
+   			}
+   		}
+   		
+   		for(var j=0;j<oList.length;j++){
+   			oList[j].index=j;
+   			oList[j].onclick=function(){
+   				index=this.index;
+   				for(var m=0;m<oList.length;m++){
+   					oList[m].className="";
+   				}
+   				this.className="active";
+   			    bigBox.style.top=-this.index*_height+"px";
+   			}
+   		}
+	    /*
+		 * 绑定事件,兼容处理
+		 事件目标：oBjNode
+		 事件处理程序：fn
+		 事件名称：eventName
+		 */
+		function addevent(oBjNode,eventName,fn){
+			if(oBjNode.addEventListener){
+				oBjNode.addEventListener(eventName,fn);
+			}else{
+				oBjNode.attachEvent("on"+eventName,fn);//兼容ie
+			}
+		}
+//		function fn1(){
+//			alert(1);
+//		}
+		
+		addevent(document,"mousewheel",Wheel);//ie 和谷歌
+ 		addevent(document,"DOMMouseScroll",Wheel);//火狐
+ 	</script>
+ </body>
+</html>

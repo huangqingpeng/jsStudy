@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+  <style>
+    #div1{width:550px;height:300px;margin:0 auto; position:relative;z-index:0;}
+	#div1 img{width:550px;height:300px;position:absolute;}
+	#bt1{position:absolute;left:0;top:150px;}
+	#bt2{position:absolute;right:0;top:150px;}
+  </style>
+</head>
+
+<body>
+  <div id="div1">
+       <input type="button" id="bt1" value="上一页" />
+       <input type="button" id="bt2" value="下一页" />
+       <img src="img/1.jpg" />
+       <img src="img/2.jpg" />
+       <img src="img/3.jpg" />
+       <img src="img/4.jpg" />
+       <img src="img/5.jpg" />
+       <img src="img/6.jpg" />
+       <img src="img/7.jpg" />
+       <img src="img/8.jpg" />
+  </div>
+  <script>
+       var oDiv1=document.getElementById("div1");
+       var oBt1=document.getElementById("bt1");
+	   var oBt2=document.getElementById("bt2");
+	   var oImglist=oDiv1.getElementsByTagName("img");	   
+	   var zIndex;
+	   var i=0;
+	   var index=1;
+	   oImglist[0].style.zIndex=index;
+	   oDiv1.onmouseover=function(){
+		   oBt1.style.zIndex="1000";
+		   oBt2.style.zIndex="1000";
+		    
+		   oBt1.onclick=function(){			  
+			   if(i==0){
+				   i=7;
+				   oImglist[i].style.zIndex=index++;
+				   
+				   }else{
+					   oImglist[--i].style.zIndex=index++;
+					   }
+					   
+			   }
+		   oBt2.onclick=function(){			  
+			   if(i==7){
+				   i=0;
+				   oImglist[i].style.zIndex=index++;
+				   
+				   }else{
+					   oImglist[i++].style.zIndex=index++;
+					   }
+					   
+			   }
+		   }
+	   oDiv1.onmouseout=function(){
+		   oBt1.style.zIndex="0";
+		   oBt2.style.zIndex="0";
+		   }
+  </script>
+</body>
+</html>

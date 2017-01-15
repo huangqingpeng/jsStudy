@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<script type="text/javascript">
+		
+		//表单事件中form包括input系列，还有select，textarea；
+		
+			var oTxt=document.getElementById("txt1");
+			//失去焦点事件
+//			oTxt.onblur=function(){
+//				alert("失去焦点");
+//			}
+//			//获取焦点事件
+//			oTxt.onfocus=function(){
+//				alert("获取焦点");
+//			}
+            //元素被改变时，触发
+//          oTxt.onchange=function(){
+//          	alert("您确定要修改？")
+//          }
+            
+            //oninput,输入字符段时触发，有兼容。用onnkeypdown
+            
+             oTxt.oninput=function(){
+             	alert("3");
+             }
+              oTxt.onkeydown=function(){
+              	//ie
+             	alert("3");
+             }
+		</script>
+	</body>
+</html>

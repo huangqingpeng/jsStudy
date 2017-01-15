@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+				cursor: move;
+			}
+			
+			#p1 {
+				height: 20px;
+				width: 200px;
+				background: blue;
+			}
+			
+			#hf {
+				display: block;
+				color: #fff;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<p id="p1"> 哈哈哈哈哈哈哈或</p>
+			<a href="javascript:;" id="hf">回放</a>
+		</div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("div1");
+			var oP = document.getElementById("p1");
+			var oA = document.getElementById("hf");
+			var arrs = [];
+			var index = 0;
+			var timer;
+			oP.onmousedown = function(e1) {
+				var _e1 = e1 || window.event;
+				var _x = _e1.offsetX;
+				var _y = _e1.offsetY;
+				arrs = [];
+				document.onmousemove = function(e) {
+					var _e = e || window.event;
+					var x = _e.clientX - _x;
+					var y = _e.clientY - _y;
+					var _height = document.body.clientHeight || document.documentElement.clientHeight;
+					var _width = document.body.clientWidth || document.documentElement.clientWidth;
+					if(x < 0) {
+						x = 0;
+					}
+					if(y < 0) {
+						y = 0;
+					}
+					if(x > _width - oDiv.offsetWidth) {
+						x = _width - oDiv.offsetWidth
+					}
+					if(y > _height - oDiv.offsetHeight) {
+						y = _height - oDiv.offsetHeight
+					}
+					oDiv.style.left = x + "px";
+					oDiv.style.top = y + "px";
+					var obj = {
+						left: x,
+						top: y
+					}
+					arrs.push(obj);
+					//console.log(arr);
+				}
+				return false;//阻止默认行为
+			}
+			document.onmouseup = function() {
+				console.log(arrs);
+				document.onmousemove = "";
+
+			}
+			oA.onclick = function() {
+				console.log(arrs);
+				timer=setInterval(function(){
+					index++;
+					var obj=arrs[index];
+					oDiv.style.left =obj.left + "px";
+					oDiv.style.top = obj.top+ "px";
+					if(index==arrs.length){
+						clearInterval(timer);
+						index=0;
+					}
+				},50)
+			}
+		</script>
+	</body>
+
+</html>

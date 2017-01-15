@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css"  href="all.css">
+
+ </head>
+ <body>
+	<div id="box" class="box">
+		<div id="content" class="content">
+			<ul id="talkList">
+				<li class="mm">
+					<div class="logo-head"> 
+						<img src="img/mm.jpg"/>
+					</div>
+					<span class="talk">
+						Hi,主人！我是您最贴心的小娜!
+					</span>
+				</li>
+				<li class="mm">
+					<div class="logo-head"> 
+						<img src="img/mm.jpg"/>
+					</div>
+					<span class="talk">
+						我可以陪您聊天哦！O(∩_∩)O
+					</span>
+				</li>
+				<li class="gg">
+					<div class="logo-head">
+						<img src="img/gg.jpg"/>
+					</div>
+					<span class="talk">
+						o(≧v≦)o~~
+					</span>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="control">
+			<textarea id="txt" rows="2" cols="40"></textarea>
+			<a href="javascript:;" id="send">发送</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var oTxt=document.getElementById("txt");
+		var send=document.getElementById("send");
+		var oU=document.getElementById("talkList");
+		
+//		send.onclick=function(){
+//			var txt=oTxt.value;
+//			console.log(txt);
+//			if(txt){
+//				//gg聊天创建
+//				var oLi=document.createElement("li");
+//				oLi.className="gg";
+//				oLi.innerHTML="<div class='logo-head'>"+
+//							"<img src=\"img/gg.jpg\"/>"+
+//						"</div><span class='talk'>"+txt+"</span>";
+//				oU.appendChild(oLi);			
+//				oLi.scrollIntoView();//让创建的li内内容显示在可是区域内
+//				oTxt.value="";
+//				//mm聊天创建
+//				var oLi1=document.createElement("li");
+//				oLi1.className="mm";
+//				oLi1.innerHTML="<div class='logo-head'>"+
+//							"<img src=\"img/mm.jpg\"/>"+
+//						"</div><span class='talk'>"+"O(∩_∩)O哈！"+"</span>";
+//				oU.appendChild(oLi1);			
+//				oLi1.scrollIntoView();//让创建的li内内容显示在可是区域内
+//			}else{
+//				alert("您还没有输入聊天内容")
+//			}
+//		}
+
+        
+		send.onclick=function(){
+			var txt=oTxt.value;
+			 talk("gg",txt);
+			 if(txt){//文本框中有内容发送时，才有回复
+			 	 setTimeout(function(){//延迟回复
+				 	talk("mm","哈哈哈哈或");
+				 	talk("mm","无语");
+				 },1000)
+			 } 
+		}
+		document.onkeydown=function(e){//快捷键操作
+			var _e=window.event||e;
+			if(_e.keyCode==13&&_e.ctrlKey){//ctrl+enter键快捷键
+				send.onclick();
+			}
+		}
+		
+		
+		/*
+		 cName：类名；
+		 content：聊天内容
+		 */
+		function talk(cName,content){
+			if(content){
+				var oLi=document.createElement("li");
+				oLi.className=cName;
+				oLi.innerHTML="<div class='logo-head'>"+
+							"<img src=\"img/"+cName+".jpg\"/>"+
+						"</div><span class='talk'>"+content+"</span>";
+				oU.appendChild(oLi);			
+				oLi.scrollIntoView();//让创建的li内内容显示在可是区域内
+				if(cName=="gg"){
+					oTxt.value="";
+				}
+			}
+		}
+		
+	</script>
+ </body>
+</html>

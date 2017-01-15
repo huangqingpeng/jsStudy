@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 	JSON  理解为一个对象（工具库）
+			 	JSON.parse(字符串表现形式的对象或数组)  
+			 	字符串表现形式的对象或数组被称为  字符串JSON
+			 		如：'{}'
+			 		作用：将字符串形式的对象或数组转换为真正对象或数组
+			 	
+			 	JSON.stringify(数组或对象);
+			 	如：{};[]
+			 	作用：将对象或数组转换为字符串形式的对象或数组
+			 */
+			
+//			var str = '{"pid":"1001","pName":"智能手表"}';  //string
+//			//注意，对应对象的键名，一定要加双引号或单引号  ->针对字符串形式的对象
+//			
+//			var str2 = '[{"pid":"1001","pName":"智能手表","desc":"性价比高","price":1222,"count":10,"imgSrc":"01.jpg"},{"pid":"1002","pName":"华为手机","desc":"性价比高","price":2222,"count":10,"imgSrc":"01.jpg"}]';   //string
+//			
+//			var arr = JSON.parse(str2);
+//			console.log(arr);
+
+
+			var arr = [{pid:1001},{pid:1002},{pid:1003}];   //Array   ->  Object
+			console.log(typeof arr);    //object
+			
+			var str = JSON.stringify(arr); //string
+			console.log(str);
+			console.log(typeof str);
+			
+			 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

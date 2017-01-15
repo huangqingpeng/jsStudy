@@ -1,0 +1,284 @@
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	li{
+		list-style: none;
+	}
+	#box-wrap{
+		float:left;
+		margin:100px 20px;
+	}
+	.small-box{
+		width:300px;
+		height:300px;
+		border:1px solid #ccc;
+		position:relative;
+		float:left;
+		margin:10px 50px;
+		cursor:move;
+		overflow:hidden;
+		margin-right: 100px;
+	}
+	#smallul{
+		width:3600px;
+		height:300px;
+		position:absolute;
+		/*overflow: hidden;*/
+	}
+	.small-box ul li{
+		list-style: none;
+		float:left;
+		height:300px;
+		width:300px;
+	}
+	.small-box img{
+		width:300px;
+		height:300px
+	}
+	.small-box .tool{
+		width:100px;
+		height:100px;
+		background-color:gold;
+		opacity:0.7;
+		filter:alpha(opacity=70);
+		position:absolute;
+		display:none;
+	}
+	.small-box .tool.active{
+		display:block;
+	}
+	.big-box{
+		width:400px;
+		height:400px;
+		border:1px solid #ccc;
+		overflow:hidden;
+		float:left;
+		margin:100px 10px;
+		position:relative;
+		display:none;
+	}
+	.active{
+		display:block;
+	}
+	.big-box ul{
+		width:14400px;
+		height:1200px;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	.big-box ul li{
+		float:left;
+		position:relative;
+		width:1200px;
+		height:1200px;
+	}
+	
+	.big-box img{
+		width:1200px;
+		height:1200px;
+		position:absolute;
+	}
+	#tab{
+		clear: both;
+		width:300px;
+		height:60px;
+		border:1px solid #ccc;
+		margin:10px 50px;
+		padding: 0 10px;
+		position:relative;
+		overflow: hidden;
+		padding:10px;
+	}
+	#tab ul{
+		position:absolute;
+		width:800px;
+		overflow: hidden;
+	}
+	#tab li{
+		float:left;
+		height:40px;
+		width:40px;
+		padding:10px;
+	}
+	#tab li img{
+		height:40px;
+		width:40px;
+	}
+	.bordercolor{
+		border:1px solid red;
+	}
+	#left{
+		display:block;
+		width:10px;
+		height:60px;
+		line-height: 60px;
+		position:absolute;
+		left:0;
+		font-size: 20px;
+		cursor:pointer;
+		background:#f0f0f0;
+		text-align: center;
+	}
+	#right{
+		display:block;
+		width:10px;
+		height:60px;
+		position:absolute;
+		right:0;
+		line-height: 60px;
+		font-size: 20px;
+		cursor:pointer;
+		background:#f0f0f0;
+		text-align: center;
+	}
+  </style>
+	
+ </head>
+ <body>
+	<!--左边的小盒子-->
+	<div id="box-wrap">
+		<div class="small-box" id="smallBox">
+			<ul id="smallul">
+				<li><img src="images/img01.jpg"/></li>
+				<li><img src="images/img02.jpg"/></li>
+				<li><img src="images/img03.jpg"/></li>
+				<li><img src="images/img04.jpg"/></li>
+				<li><img src="images/img05.jpg"/></li>
+				<li><img src="images/img06.jpg"/></li>
+				<li><img src="images/img07.jpg"/></li>
+				<li><img src="images/img08.jpg"/></li>
+				<li><img src="images/img09.jpg"/></li>
+				<li><img src="images/img10.jpg"/></li>
+				<li><img src="images/img11.jpg"/></li>
+				<li><img src="images/img12.jpg"/></li>
+			</ul>
+			<!--放大镜工具盒子-->
+			<div class="tool" id="tool"></div>
+		</div>
+		<div id="tab">
+			<ul id="tabul">
+				<li class="tablist"><img src="images/tab01.jpg"/></li>
+				<li class="tablist"><img src="images/tab02.jpg"/></li>
+				<li class="tablist"><img src="images/tab03.jpg"/></li>
+				<li class="tablist"><img src="images/tab04.jpg"/></li>
+				<li class="tablist"><img src="images/tab05.jpg"/></li>
+				<li class="tablist"><img src="images/tab06.jpg"/></li>
+				<li class="tablist"><img src="images/tab07.jpg"/></li>
+				<li class="tablist"><img src="images/tab08.jpg"/></li>
+				<li class="tablist"><img src="images/tab09.jpg"/></li>
+				<li class="tablist"><img src="images/tab10.jpg"/></li>
+				<li class="tablist"><img src="images/tab11.jpg"/></li>
+				<li class="tablist"><img src="images/tab12.jpg"/></li>
+			</ul>
+			<span id="left">&lt;</span>
+			<span id="right">&gt;</span>
+		</div>
+	</div>
+	
+	<!--右边的大盒子-->
+	<div class="big-box" id="bigBox">
+		<ul id="bigul">
+			<li><img src="images/img01.jpg"/></li>
+			<li><img src="images/img02.jpg"/></li>
+			<li><img src="images/img03.jpg"/></li>
+			<li><img src="images/img04.jpg"/></li>
+			<li><img src="images/img05.jpg"/></li>
+			<li><img src="images/img06.jpg"/></li>
+			<li><img src="images/img07.jpg"/></li>
+			<li><img src="images/img08.jpg"/></li>
+			<li><img src="images/img09.jpg"/></li>
+			<li><img src="images/img10.jpg"/></li>
+			<li><img src="images/img11.jpg"/></li>
+			<li><img src="images/img12.jpg"/></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+		var smallBox=document.getElementById("smallBox");
+		var oTool=document.getElementById("tool");
+		var bigBox=document.getElementById("bigBox");
+		var imgList=bigBox.getElementsByTagName("img");
+		var smallUl=document.getElementById("smallul");
+		var bigUl=document.getElementById("bigul");
+		var tabUl=document.getElementById("tabul");
+		var tabList=document.getElementsByClassName("tablist");
+		var bLeft=document.getElementById("left");
+		var bRight=document.getElementById("right");
+		var pageIndex=0;//记录轮播的时，向一个方向滚动的次数
+		var index=0;
+		bLeft.onclick=function(){//向左移动,切换列表图片
+			pageIndex++;
+			if(pageIndex>7){
+				pageIndex=7;
+				alert("已到最后一张")
+			}
+			tabUl.style.left=-pageIndex*60+"px";
+		}
+		bRight.onclick=function(){//向右移动,切换列表图片
+			pageIndex--;
+			if(pageIndex>7){
+				pageIndex=7;
+			}
+			if(pageIndex<0){
+				pageIndex=0;
+				alert("已到最后一张")
+			}
+			tabUl.style.left=-pageIndex*60+"px";
+		}
+		
+		/*
+		 * 选中列表图片的同时，显示当前图片
+		 */
+		var current;
+		for(var i=0;i<tabList.length;i++){
+			tabList[i].index=i;
+			tabList[i].onmouseover=function(){
+				if(current){
+					current.className="tablist";
+				}
+				current=this;
+				current.className="tablist bordercolor";
+				smallUl.style.left=-this.index*300+"px";
+				bigUl.style.left=-this.index*1200+"px";
+				index=this.index;
+			}
+		}
+		
+		smallBox.onmouseenter=function(){
+			oTool.className="tool active";
+			bigBox.className="big-box  active";
+		}
+		smallBox.onmousemove=function(e){
+			var _e=window.event||e;
+			var x=_e.clientX-oTool.offsetWidth/2-smallBox.offsetLeft;
+			var y=_e.clientY-oTool.offsetHeight/2-smallBox.offsetTop;
+			if(x<0){
+				x=0;
+			}
+			if(y<0){
+				y=0
+			}
+			//小盒子的宽度-移动的盒子的宽度为右边界
+			if(x>smallBox.offsetWidth-tool.offsetWidth){
+				x=smallBox.offsetWidth-tool.offsetWidth;
+			}
+			if(y>smallBox.offsetHeight-tool.offsetHeight){
+				y=smallBox.offsetHeight-tool.offsetHeight;
+			}
+			oTool.style.left=x+"px";
+			oTool.style.top=y+"px";
+			imgList[index].style.left=-x*4+"px";
+			imgList[index].style.top=-y*4+"px";
+			
+		}
+		smallBox.onmouseleave=function(){
+			oTool.className="tool";
+			bigBox.className="big-box";
+		}
+	</script>
+ 
+ </body>
+</html>

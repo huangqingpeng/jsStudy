@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+  <input type="button" id="bt1" value="随机数" />
+   <input type="button" id="bt2" value="插入排序" />
+   <div id="div1"></div>
+   <script>
+       var oBt1=document.getElementById("bt1");
+	   var oDiv1=document.getElementById("div1");
+	   var arr=[];
+	   oBt1.onclick=function(){
+	       for(var i=0;i<10;i++){
+		   arr[i]=parseInt(Math.random()*10);
+		   } 
+		oDiv1.innerHTML=arr;
+	   }
+	   var oBt2=document.getElementById("bt2");
+	   oBt2.onclick=function(){
+            var arr1=[];
+            for(var i=0;i<arr.length;i++){
+                var length=arr1.length;
+                for(var k=0;k<length;k++){
+                    if(arr[i]<arr1[k]){
+                        arr1.splice(k,0,arr[i]);
+                        break;
+                    }
+                }
+                var lengthNew=arr1.length;
+                if(lengthNew==length){
+                    arr1.push(arr[i]);
+                }
+            }
+            oDiv1.innerHTML=arr1;
+        }
+	</script>
+</body>
+</html>

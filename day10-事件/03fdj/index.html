@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.small-box{
+		width:300px;
+		border:1px solid #ccc;
+		position:relative;
+		float:left;
+		margin:10px 50px;
+		cursor:move;
+		overflow:hidden;
+	}
+	.small-box img{
+		width:300px;
+		
+	}
+	.small-box .tool{
+		width:100px;
+		height:100px;
+		background-color:gold;
+		opacity:0.7;
+		filter:alpha(opacity=70);
+		position:absolute;
+		left:10px;
+		top:0;
+		display:none;
+	}
+	.small-box .tool.active{
+		display:block;
+	}
+	.big-box{
+		width:400px;
+		height:400px;
+		border:1px solid #ccc;
+		overflow:hidden;
+		float:left;
+		margin:10px 10px;
+		position:relative;
+		/*display:none;*/
+	}
+	.big-box.active{
+		display:block;
+	}
+	.big-box img{
+		width:1200px;
+		position:absolute;
+	}
+  </style>
+	
+ </head>
+ <body>
+	<!--左边的小盒子-->
+	<div class="small-box" id="smallBox">
+		<img src="awe.jpg" />
+		<!--放大镜工具盒子-->
+		<div class="tool" id="tool"></div>
+	</div>
+	<!--右边的大盒子-->
+	<div class="big-box" id="bigBox">
+		<img src="awe.jpg" id="bigImg" />
+	</div>
+	<script type="text/javascript" src="index.js" ></script>
+ </body>
+</html>

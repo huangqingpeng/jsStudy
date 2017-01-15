@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ *{margin:0; padding:0}
+ #div1{width:400px; height:100px;background:#CC9;margin:0 auto; text-align:center;font-size:20px; padding-top:30px; line-height:50px;}
+ #div1 input{width:100px;height:50px;background:#fff;font-size:20px;}
+ table{margin:0 auto;border:1px solid #03F;}
+ td{border: 1px solid #4CBDF1;font-size: 20px;text-align: center;background: #cccccc; width: 120px;height: 50px; float:left; line-height:50px;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+     <p id="p1">姓名</p>
+     <div>
+     <input type="button" id="bt1" value="开始" />
+     <input type="button" id="bt2" value="随机十次" />
+     </div>
+</div>
+<script>
+var arrName=["钱森","李宁","田金林","李明","李宏胜","吕朋丽","潘雪蕊","曲应钦","韩奎星","祁琦","成敏","吴涛","张劲松","李娜","彭跃勇", "李蓉蓉",
+        "宋龙飞","杨浩男","白忠胜","黄华","黄青鹏","宋健","王明辉","蔡鲁立","邹润东","陈念鲁","昝石磊","吴增喜","王皓宇" ,"胡厚传" ,
+        "逯振强" ,"段石磊" ,"王超" ,"张中华" ,"崔京京" ,"张淑芳" ," 于海跃" , "高盈" ,"焦伟军" ,"安佰凯" ,"陈焕海" ,"孙露露" ,"王云飞" ,
+        "岳文喆" ," 董静" ,"曹文博" ,"万龙" ,"康恺" ,"范珂振" ,"张岩鹏" ,"徐亮" ,"张永健" ," 陆家琪" ,"马彩娟","陶懿臻" ,"高林莉" ,"陈阔" ,
+        "翟科" ,"魏前行" ,"何忠明" ];
+var oBt1=document.getElementById("bt1");
+var oBt2=document.getElementById("bt2");
+var oTb=document.createElement("table");//创建表格
+var row=8;
+var col=8;
+    for(i=0;i<row;i++){
+		var tr=document.createElement("tr");//创建列
+		for(j=0;j<col;j++){
+			var td=document.createElement("td");//创建表格	
+			var index=i*row+j;//获取数组里元素的下标。
+			td.innerHTML=arrName[index];//数组里的元素显示在单元格里。
+			tr.appendChild(td);//
+			}
+		oTb.appendChild(tr);//table里插入tr
+		}
+	document.body.appendChild(oTb);//table插入网页中
+var oP1=document.getElementById("p1");//
+var timer;
+var flag=true;
+	oBt1.onclick=function(){//点击“开始”按钮
+		if(flag){
+		   timer=setInterval(function(){
+				var rdindex=parseInt(Math.random()*60);//得出一个随机数字
+				var tdlist=oTb.getElementsByTagName("td");
+				//获取table里所有的单元格的集合，组成一个新的数组
+				for(k=0;k<tdlist.length;k++){
+					tdlist[k].style.background="red";//给td单元格背景颜色为红色
+					}
+			    tdlist[rdindex].style.background="blue";
+				//随机出来的td单元格背景为蓝色
+				oP1.innerHTML=arrName[rdindex];//随机出来的人名显示在div中
+				},300)
+		this.value="停止";//在随机正在进行时，“开始”按钮变为“停止”；
+        this.style.background="red";//在随机正在进行时，“开始”按钮变为“停止”且背景为红色；
+		}else{
+			clearInterval(timer);//清除上一次随机的记录
+			this.value="开始";//按钮恢复成“开始“
+            this.style.background="chartreuse";
+			}
+		flag=!flag;
+	}
+var timer2;
+var count=0;
+	oBt2.onclick=function(){//点击“随机十次”按钮；
+		clearInterval(timer2);
+		count=0;
+	    var that=this;
+		timer2=setInterval(function(){
+		     if(count<10){
+				var rdindex=parseInt(Math.random()*60);//得出一个随机的数字
+				var tdlist=oTb.getElementsByTagName("td");
+				//获取table里所有的单元格的集合，组成一个新的数组；
+				for(k=0;k<tdlist.length;k++){
+					tdlist[k].style.background="red";//给td单元格背景颜色为红色；
+					}
+			    tdlist[rdindex].style.background="blue";
+				//随机出来的td单元格背景为
+				oP1.innerHTML=arrName[rdindex];//随机出来的人名显示在div中				
+				count++;
+		that.value=10-count;//按钮“随机十次”变成“倒计时”
+        that.style.background="red";//按钮“随机十次”变成“倒计时”且背景变成红色
+		}else{s
+			clearInterval(timer2);//清除上一次点击过后的记录
+			count=0;//随机次数清0；
+			that.value="随机十次";
+            that.style.background="chartreuse";
+			}
+	},300)	
+	}
+		
+		
+</script>
+</body>
+</html>
