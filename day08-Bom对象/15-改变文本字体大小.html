@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				font-size:16px;
+				color:red;
+				width:800px;
+				height:200px;
+				margin:100px auto;
+				text-align: center;
+				line-height: 200px;
+				border:solid #0000FF 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			规划极乐空间，减肥的努力尽快恢复了客家人
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById("div1");
+				var timer;
+				var coloroDiv;
+				var fontSizeoDiv;
+				var count=0;
+				var falg=true;
+				timer=setInterval(function(){
+					count++;
+					if(window.getComputedStyle){
+					    fontSizeoDiv=window.getComputedStyle(oDiv)["font-size"];
+					    //console.log(window.getComputedStyle(oDiv)["font-size"])
+					   // console.log(fontSizeoDiv);
+					}else{
+					    fontSizeoDiv=oDiv.currentStyle["font-size"];
+					}
+				    if(falg){
+				    	oDiv.style.fontSize=(parseInt(fontSizeoDiv)+4)+"px";
+				    }else{
+				    	oDiv.style.fontSize=(parseInt(fontSizeoDiv)-4)+"px";
+				    }
+					if(count==6){
+						falg=!falg
+						count=0;
+					}
+					oDiv.style.color=getColor();
+				},1000)	
+			}
+			//获取随机颜色
+			function getColor(){
+					var colors=parseInt(Math.random()*255*255*255).toString(16);
+					return  "#"+colors;
+			    }
+		</script>
+	</body>
+</html>

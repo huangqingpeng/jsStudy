@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/$.js"></script>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="选号" />
+		<div id="div1"></div>
+		<script type="text/javascript">
+		   
+			$("#btn").onclick=function(){
+				 var arr=[];
+				while(arr.length<7){
+					var n=Math.floor(Math.random()*33);
+					if(arr.indexOf(n)==-1){
+						//查找元素，如果没有找到，就返回-1；和字符串的查找用法一样
+						arr.push(n);
+					}
+				}
+				$("#div1").innerHTML=arr.join(" ");
+			}
+		</script>
+	</body>
+</html>

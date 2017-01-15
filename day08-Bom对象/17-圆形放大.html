@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				position:relative;
+				left:600px;
+				top:400px;
+				width:10px;
+				height:10px;
+				background:#FFC0CB;
+			}
+			 .creatediv{
+			 	border:1px solid #0000FF;
+			 	border-radius: 50%;
+			 	width:10px;
+			 	height:10px;
+			 	opacity:1;
+			 }
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var n=300;
+			var r=10;
+			var aOpacity=1;
+			var timer;
+			var oDiv1=document.getElementById("div1");
+			timer=setInterval(function(){
+				oDiv1.innerHTML="";
+				r+=20;
+//				aOpacity-=0.00339;
+				for(var i=0;i<n;i++){
+					var oDiv=document.createElement("div");
+					var _left=r*Math.cos(i*2*Math.PI/n)+"px";
+					var _top=r*Math.sin(i*2*Math.PI/n)+"px";
+					oDiv.className="creatediv";
+					oDiv.style.position="absolute";
+					oDiv.style.top=_top;
+					oDiv.style.left=_left;
+					oDiv.style.borderColor=getColor();
+					oDiv.style.opacity=aOpacity;
+					oDiv1.appendChild(oDiv);
+					//console.log(oDiv);
+			    }
+				if(r>300){
+					//clearInterval(timer);
+					r=10;
+					aOpacity=1;
+				}
+			},10)
+			//获取随机颜色
+			function getColor(){
+					var colors=parseInt(Math.random()*255*255*255).toString(16);
+					return  "#"+colors;
+			    }
+			
+			
+			
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/$.js">
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn1" id="btn1" value="看成绩" />
+		<input type="button" name="btn2" id="btn2" value="大写数字" />
+		<script type="text/javascript">
+		    $("#btn1").onclick=function(){
+				alert(fn($("#txt1").value));
+			}
+		    $("#btn2").onclick=function(){
+		    	if(fn1($("#txt1").value)){
+		    		alert(fn1($("#txt1").value));
+		    	}else{
+		    		alert("输入数不在范围内");
+		    	}	
+		    }
+		    
+			function fn(n){
+				var arr=["优秀","良好","及格","不及格"];
+				if(n>=85){
+					return arr[0]
+				}else if(n<60){
+					return arr[3]
+				}else if(n<75&&n>=60){
+					return arr[2]
+				}else{
+					return arr[1]
+				}
+			}
+			
+			
+			
+			function fn1(n){
+				var arr=["壹","贰","叁","肆","伍","陆","柒","捌","玖","拾"];
+				if(n>9){
+					return false;
+				}
+				return arr[n-1];
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

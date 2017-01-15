@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+			12
+		</div>
+		<script type="text/javascript">
+		    
+		    var oDiv=document.getElementById("div1")
+			function fn(){
+				var date=new Date();
+				oDiv.innerHTML = date;
+			    setTimeout(fn,1000);
+			}
+			setTimeout(fn,1000);
+		</script>
+	</body>
+</html>

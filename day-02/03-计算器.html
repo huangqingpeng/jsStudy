@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/$.js"></script>
+	</head>
+	<body>
+		<input type="text"  id="txt1" placeholder="请输入数字" />
+		<input type="text"  id="txt2" placeholder="请输入运算符" />
+		<input type="text"  id="txt3" placeholder="请输入数字" />
+		<input type="text"  id="txt4" placeholder="运算结果" />
+		<input type="button"  id="btn" value="计算" />
+		<script type="text/javascript">
+			$("#btn").onclick=function(){
+				var oTxt1=Number($("#txt1").value);
+				var oTxt2=$("#txt2").value;
+				var oTxt3=Number($("#txt3").value);
+//				alert(checkNum(3));
+				if(checkNum(oTxt1,oTxt3)){
+					var result=eval(oTxt1+oTxt2+oTxt3)
+				    $("#txt4").value=result;
+				}else{
+					alert("输入不正确");
+				}
+			}
+			
+			// 检查是不是数值
+			function checkNum(arguments){
+				var n=arguments;
+				for(var i=0;i<n.length;i++){
+					if(isNaN(n[i])){
+					    return false;
+				    }
+					if(n.length==0){
+					  return false;
+				    }
+				}
+				 return true;
+			}
+			
+		</script>
+	</body>
+</html>

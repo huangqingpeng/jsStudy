@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/$.js">
+		</script>
+		<style type="text/css">
+			#div1{
+				width:1000px;
+				height:600px;
+				position:absolute;
+				left:100px;
+				border:1px solid red;
+			}
+			#div2{
+				width:1000px;
+				height:0;
+				border:1px solid blue;
+				position:absolute;
+				top:300px;
+				left: 0;
+			}
+			.pointer{
+				border:1px solid pink;
+				position: absolute;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2"></div>	
+		</div>
+		<script type="text/javascript">
+			var x=0;
+			var y=0;
+			var timer;
+			timer=setInterval(function(){
+				if(x==800){
+					clearInterval(timer);
+				}
+				x++;
+			    y=-Math.sin(0.02*x)*100;
+			    console.log(y);
+				var oDiv=document.createElement("div");
+				oDiv.className="pointer";
+				oDiv.style.left=x+"px";
+				oDiv.style.top=y+"px";
+				$("#div2").appendChild(oDiv);
+			},50)
+			
+		</script>
+	</body>
+</html>

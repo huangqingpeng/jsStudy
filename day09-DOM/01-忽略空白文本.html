@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+			hjjhkjf
+			<div id="div2">
+				hmgjhgd
+			</div>
+			<div id="div3">
+			</div>
+		</div>
+		<script type="text/javascript">
+		     var oDiv=document.getElementById("div1");
+		     var childs=oDiv.childNodes;
+//		     console.log(childs);
+//		     console.log(filterSpaceNodes(childs)) ;
+		     console.log(childs);
+		     filterSpaceNodes2(childs);
+		     console.log(childs);
+		     //检查子节点是否有文本节点，并且是空白的文本节点
+			function filterSpaceNodes(nodes){
+				var ret=[];
+				for(i=0;i<nodes.length;i++){
+					if(nodes[i].nodeType==3&&/^\s+$/.test(nodes[i].nodeValue)){
+						continue;
+					}
+						ret.push(nodes[i]);
+				}
+				return ret;
+			}
+			
+			//remove方法删除空文本节点
+			function filterSpaceNodes2(nodes){
+				for(i=0;i<nodes.length;i++){
+					var parent=nodes[i].parentNode;
+					if(nodes[i].nodeType==3&&/^\s+$/.test(nodes[i].nodeValue)){
+					    parent.removeChild(nodes[i]);
+					
+				     }
+				}
+			}
+			
+		</script>
+	</body>
+</html>

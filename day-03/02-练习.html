@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		var n=20;
+		var arr=[];
+		while(n<=80){
+			if(n%3==0){
+				arr.push(n);
+			}
+			n++;
+		}
+		document.write(arr.join(" "))
+		
+		var m=0
+		while(m<arr.length){
+			if(m%5==0){
+				 document.write("<br>");
+			}
+			   document.write(arr[m]+" ");
+			m++
+		}
+		document.write("<hr>")
+		//2000到3000年中闰年
+		var arr=[];
+		var n=2000;
+		while(n<3000){
+			if((n%100==0&&n%400==0)||(n%4==0&&n%100!=0)){
+				arr.push(n);
+			}
+			n++;
+		}
+		//document.write(arr.join());
+		var m=0
+		while(m<arr.length){
+			if(m%10==0){
+				 document.write("<br>");
+			}
+			   document.write(arr[m]+" ");
+			m++
+		}
+		document.write("共有润年"+arr.length);
+		document.write("<hr>");
+		//被3或7整除
+		var n=100;
+		var arr=[];
+		while(n<=200){
+			if(n%3==0||n%7==0){
+				arr.push(n);
+			}
+			n++;
+		}
+		document.write(arr.join(" "));
+		document.write("<hr>");
+		//判断素数
+		function check(n){
+			flag=true;
+			for(var i=2;i<n;i++){
+				if(n%i==0){
+					flag=false;
+					break;
+				}
+		   }	
+		   return flag;
+		}
+		
+		var arr=[];
+		for(var m=1;m<100;m++){
+			if(check(m)){
+				arr.push(m);
+			}
+		}
+		document.write(arr.join(" "));
+	</script>
+	</body>
+</html>

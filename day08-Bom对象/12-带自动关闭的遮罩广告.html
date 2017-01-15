@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    #content img{
+		    	width:100%;
+		    	cursor:pointer;
+		    }
+		    #box{
+		    	background:#fff;
+		    	opacity:0.5;
+		    	position:fixed;
+		    	left:0;
+		    	top:0
+		    }
+			#div1{
+				width:600px;
+				height:400px;
+				position:fixed;
+				/*right:10px;
+				bottom:10px;*/
+				left:30%;
+				right:30%;
+				top:300px;
+			}
+			#div1 img{
+				width:600px;
+				height:400px;
+			}
+			#close{
+				position:absolute;
+				right:10px;
+				top:5px;
+				font-size: 20px;
+				background:pink;
+				width:30px;
+				height:20px;
+				line-height: 20px;
+				text-align: center;
+				cursor:pointer;
+			}
+			#autocolse{
+				position:absolute;
+				left:10px;
+				top:5px;
+				font-size: 14px;
+				background:pink;
+				height:30px;
+				line-height: 30px;
+				width:120px;
+				text-align: center;
+			}
+			#num{
+				font-size: 20px;
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<img src="img/290986.jpg"/>
+			<img src="img/291074.jpg" />
+			<img src="img/291145.jpg" />
+			<img src="img/291146.jpg"/>
+			<img src="img/291147.jpg"/>
+			<img src="img/291184.jpg"/>
+			<img src="img/290986.jpg"/>
+			<img src="img/291074.jpg" />
+			<img src="img/291145.jpg" />
+			<img src="img/291146.jpg"/>
+			<img src="img/291147.jpg"/>
+			<img src="img/291184.jpg"/>
+			<img src="img/290986.jpg"/>
+			<img src="img/291074.jpg" />
+			<img src="img/291145.jpg" />
+			<img src="img/291146.jpg"/>
+			<img src="img/291147.jpg"/>
+			<img src="img/291184.jpg"/>
+			<img src="img/290986.jpg"/>
+			<img src="img/291074.jpg" />
+			<img src="img/291145.jpg" />
+			<img src="img/291146.jpg"/>
+			<img src="img/291147.jpg"/>
+			<img src="img/291184.jpg"/>
+		</div>
+		<div id="box">
+		</div>
+		<div id="div1">
+			<img src="img/294367.jpg"/>
+			<span id="close">X</span>
+			<span id="autocolse"><strong id="num">5</strong>秒后自动关闭</span>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var divBox=document.getElementById("box");
+		    var timer;
+		    var _height=window.innerHeight;
+		    var _width=window.innerWidth;
+			//console.log(_height+" "+_width)
+			divBox.style.height=_height+"px";
+			divBox.style.width=_width+"px";
+			//divBox.style.background="pink";
+			console.log(window);
+			
+			
+			timer=setInterval(function(){
+				var oNum=document.getElementById("num");
+				--oNum.innerHTML;
+				if(oNum.innerHTML==0){
+					document.getElementById("div1").style.display="none";
+					clearInterval(timer);
+					divBox.style.display="none";
+				}
+				//console.log(oNum.innerHTML)
+			},1000)
+			var oClose=document.getElementById("close");
+			oClose.onclick=function(){
+				document.getElementById("div1").style.display="none";
+				clearInterval(timer);
+				divBox.style.display="none";
+			}
+		}
+		</script>
+</html>

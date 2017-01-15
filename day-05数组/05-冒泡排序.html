@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    
+			var arr=[2,10,3,10,20,5,1,40,44,8,11,23,4]
+			//冒泡排序
+			console.log(arr);
+			console.log("-------------------------------------");
+			function paixu(arr){
+				for(var i=0;i<arr.length;i++){
+					for(var j=0;j<arr.length-1;j++){
+						if(arr[j]>arr[j+1]){
+							var temp=arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=temp;
+						}
+					}
+					console.log(arr);
+				}
+				return arr;
+			}
+			alert(paixu(arr));
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+		    var oDiv=document.getElementById("div1");
+			var endTime=new Date("2017/1/22");
+			fn();
+			function fn(){
+				var starTime=new Date();
+				var distanceTime=parseInt((endTime-starTime)/1000);
+				var days=parseInt(distanceTime/(24*60*60));
+				distanceTime-=days*24*60*60;
+				var hours=parseInt(distanceTime/(60*60));
+				distanceTime-=hours*60*60;
+				var minutes=parseInt(distanceTime/60);
+				distanceTime-=minutes*60;
+				var seconds=distanceTime;
+				if(seconds<10){
+					seconds="0"+seconds;
+				}
+				if(minutes<10){
+					minutes="0"+minutes;
+				}
+				oDiv.innerHTML=days+" 天 "+hours+" 时 "+minutes+" 分"+seconds+" 秒";
+			    setTimeout(fn,1000);
+			}
+			 
+		</script>
+	</body>
+</html>

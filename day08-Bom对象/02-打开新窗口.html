@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//open();
+			//open("http://www.baidu.com","_blank");//打开一个新窗口，在新窗口打开
+			//open("http://www.baidu.com","_parent");//打开一个新窗口，在原窗口打开
+			var win=open("http://www.baidu.com","_blank");
+			document.onclick=function(){
+				win.close();//关闭新窗口
+			}
+			
+		</script>
+	</body>
+</html>

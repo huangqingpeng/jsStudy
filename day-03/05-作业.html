@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var sum=0;
+			for(var i=1;i<=100;i++){
+				if(i%2==0){
+				   sum+=-1/i;
+				}else{
+					sum+=1/i;
+				}
+			}
+			document.write(sum);
+			document.write("<hr />");
+			//求100-999之间的水仙花数
+			//var arr=[];
+			for(var a=0;a<=100;a++){
+				for(var b=0;b<=100;b++){
+					for(var c=0;c<=100;c++){
+						var m=a*100+b*10+c;
+					   if((m==a*a*a+b*b*b+c*c*c)&&m>100&&m<999){
+					   	document.write(m);
+					   	document.write("<br>")
+					   }
+				    }
+				}
+			}
+			document.write("<hr />");
+			//100-200之间的素数
+			arr=[];
+			for(var n=100;n<=200;n++){
+				if(check(n)){
+					arr.push(n);
+				}
+			}
+			document.write(arr.join(" "));
+			document.write("共有素数为："+arr.length);
+			//判断素数
+			function check(n){
+				flag=true;
+				for(var i=2;i<n;i++){
+					if(n%i==0){
+						flag=false;
+						break;
+					}
+			   }	
+			   return flag;
+			}
+			document.write("<hr />");
+			//1!+2!+3!...阶乘和
+			
+			 //document.write(fn2(4));
+			 var sum=0;
+			 var arr=[];
+			 for(var j=1;j<=20;j++){
+			 	sum+=fn2(j);
+			 	arr.push(fn2(j));
+			 }
+			 document.write("阶乘和为："+sum+"<br/>");
+			 document.write(arr.join(" "));
+			 //求一个数的阶乘
+			function fn2(n){
+				var a=1;
+				for(var i=1;i<=n;i++){
+				    a*=i;
+			    }
+				return a;
+			}
+			document.write("<hr />");
+			var arr=[];
+			for(var n=10000;n<99999;n++){
+				var a=parseInt(n/10000);
+				var b=parseInt(n/1000)%10;
+				//var e=parseInt(n/100)%10;
+				var c=parseInt(n/10)%10;
+				var d=n%10;
+				if(a==d&&b==c){
+					arr.push(n);
+				}
+			}
+			document.write(arr.join(" "));
+            document.write(arr.length);
+            
+			document.write("<hr />");
+		</script>
+		<input type="text" name="" id="txt1" placeholder="请输入数字" />
+		<input type="text" name="" id="txt2" placeholder="请输入数字" />
+		<input type="button" name="" id="btn" value="输出" />
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+		    document.getElementById("btn").onclick=function(){
+		    	document.getElementById("div1").innerHTML="";
+		    	var oTxt1=document.getElementById("txt1").value;
+		    	var oTxt2=document.getElementById("txt2").value;
+		    	var sum=0;
+		    	var arr=[];
+		    	for(var i=0; i<oTxt1; i++){
+			    	sum+=oTxt2*Math.pow(10,i);
+			    	arr.push(sum);
+			    	console.log(sum);
+			    }
+		    	var sums=0;
+		    	for(j=0;j<arr.length;j++){
+		    		sums+=arr[j];
+		    	}
+		    document.getElementById("div1").innerHTML=sums;
+		    }
+		    
+		    
+		</script>
+		
+	</body>
+</html>

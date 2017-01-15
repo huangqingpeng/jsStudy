@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    //把每位数输入到数组
+			function check(n){
+				var str=n+"";
+				var arr=[];
+				if(str.length==5){
+					for(i=0;i<str.length;i++){
+						arr.push(str[i]);
+					}
+				}
+				return arr;
+			}
+			var arr=check(10050);
+			//alert(arr);
+			//翻转二维数组；
+			//参数arr是二维数组
+			function fn1(arr){
+				for(i=0;i<arr.length;i++){
+					arr[i].reverse();
+				}
+				return arr.reverse();
+			}
+			var arr=[[1,2,3],[3,5,7],[9,8,6]]
+			alert(JSON.stringify(fn1(arr)));
+			//拍好序的数组中插入一个数，让数组从大到小的排序不变
+			function fn2(arr,n){
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]>=n){
+						arr.splice(i,0,n);
+						break;
+					}
+					if(arr[length-1]<n){
+						arr.push(n);
+						break;
+					}
+				}
+				return arr;
+			}
+			var arr=[1,2,3,4,5,6,7,8,9];
+			alert(fn2(arr,4));
+			//flip
+			function fn3(m,n){
+				var arr=[];
+				for(var i=m;i<=n;i++){
+				   if(i%3==0&&!(i%5==0)){
+				   	  arr.push("Flip");
+				   	  continue;
+				   }
+				   if(i%5==0&&!(i%3==0)){
+				   	  arr.push("Flop");
+				   	   continue;
+				   }
+				   if(i%3==0&&i%5==0){
+				   	  arr.push("FlipFlop");
+				   	   continue;
+				   }
+				   arr.push(i);
+			    }
+				return arr;
+			}
+			console.log(fn3(1,100))
+			alert(JSON.stringify(fn3(1,100)));
+			//生成而二维码,
+			function ean13(n){
+				var str=n+"";
+				var arr=[];
+				for(var i=0;i<str.length;i++){
+					arr[i]=parseInt(str[i]);
+				}
+				console.log(arr)
+				var sum=0;//存偶数位和
+				var summ=0;//存奇数位和；
+				for(var j=0;j<str.length;j++){
+					if(j%2==0){
+						summ+=arr[j];//存奇数位和；
+					}else{
+						sum+=arr[j];
+					}	
+				}
+				console.log(summ)
+				console.log(sum)
+				var equal;
+				equal=summ+3*sum;
+				var oStr=equal%10;//结果的个位数
+				var a;//存放第13位；
+				if(10-oStr==0){
+					a=0;
+				}else{
+					a=10-oStr
+				}
+				arr.push(a);
+				console.log(arr)
+				return arr;
+			}
+			var str="";
+			for(var k=0;k<12;k++){
+				str+=parseInt(Math.random()*10);
+			}
+			
+			alert(ean13(690123456789));//6901234567892
+			alert(ean13(parseInt(str)));
+			
+		</script>
+	</body>
+</html>

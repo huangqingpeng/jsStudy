@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function fn1(a){
+				var x=a;
+				alert(x);
+				//console.log(x);
+				return function fn2(m){
+							var y=m;
+							alert(y);
+							//console.log(y)
+							return function fn3(n){
+								 //return x+y+n;
+							     alert(x+y+n);
+							     //return x+y+n;
+							}
+					    }
+			}
+			
+//			fn1(7);
+//			console.log(fn1(7));
+//			fn1(7)(8);
+//			console.log(fn1(7)(8));
+//			fn1(7)(8)(9);
+//			console.log(fn1(7)(8)(9));
+//			var b=fn1(7)(8)(9);
+//			alert(b);
+//			console.log(b);
+//			var foo=fn1(7);
+//			foo(8);
+//			console.log(foo(8))
+		</script>
+	</body>
+</html>

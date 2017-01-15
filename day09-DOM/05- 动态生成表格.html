@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    *{
+		    	margin:0;
+		    	padding:0;
+		    }
+		    tr{
+		    	margin:10px;
+		    }
+			td{
+				width:100px;
+				height:30px;
+				text-align: center;
+				line-height:30px;
+				border:1px solid red;
+			}
+			td input{
+				width:100px;
+				height:30px;
+				outline-width: medium;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="txt1" placeholder="请输入行" />
+		<input type="text" name="" id="txt2" placeholder="请输入列" />
+		<input type="button" name="btn" id="btn" value="生成" />
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var oTxt1=document.getElementById("txt1");
+			var oTxt2=document.getElementById("txt2");
+			var oBtn=document.getElementById("btn");
+			var oDiv=document.getElementById("div1");
+			oBtn.onclick=function(){
+				oDiv.innerHTML="";
+				var rowSpan=oTxt1.value;
+				var colSpan=oTxt2.value;
+				var oTab=document.createElement("table");
+				for(var i=0;i<rowSpan;i++){
+					//生成列
+					var oTr=document.createElement("tr");
+					for(var j=0;j<colSpan;j++){
+						//生成行
+						var oTd=document.createElement("td");
+						var oInput=document.createElement("input");
+						//input去边框
+						oInput.style.outline="medium";
+						oInput.style.border=0;
+						oTd.appendChild(oInput);
+						//生成的td插入tr中
+						oTr.appendChild(oTd);
+					}
+					//生成的删除，添加到每行
+					var oDel=document.createElement("td");
+					oDel.className="del";
+					oDel.innerHTML="删除";
+					oTr.appendChild(oDel);
+					oTab.appendChild(oTr)
+					//生成的表格插入到div中
+					oDiv.appendChild(oTab)
+				}
+				
+				delTr();
+			}
+			//删除本行
+			function delTr(){
+				var delList=document.getElementsByClassName("del");
+				for(var m=0;m<delList.length;m++){
+					delList[m].index=m;
+					delList[m].onclick=function(){
+						this.parentNode.parentNode.removeChild(this.parentNode);
+					}
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

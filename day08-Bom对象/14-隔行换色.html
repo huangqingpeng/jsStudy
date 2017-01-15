@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			td{
+				width:50px;
+				height:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="">
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+		</table>
+		<script type="text/javascript">
+		    var trList=document.getElementsByTagName("tr");
+		    var tag;
+			for(i=0;i<trList.length;i++){
+				if(i%2==0){
+					trList[i].style.background="pink";
+				}else{
+					trList[i].style.background="#0000FF";
+				}
+				trList[i].index=i;
+				trList[i].onmouseenter=function(){
+					tag=this.style.background;//变量tag存放当前的背景颜色
+					this.style.background=getColor();
+				}
+				trList[i].onmouseleave=function(){
+					this.style.background=tag;
+				}
+			}
+			//获取随机颜色
+			function getColor(){
+				var colors=parseInt(Math.random()*255*255*255).toString(16);
+				return  "#"+colors;
+			}
+		</script>
+	</body>
+</html>

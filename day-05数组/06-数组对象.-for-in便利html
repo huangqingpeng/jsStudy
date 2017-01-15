@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=[1,2,3];
+			arr.name="小明";
+			
+			for(var i=0;i<arr.length;i++){
+				document.write(i+":"+arr[i]+"<br>")
+			}
+			document.write("<hr>")
+			for(var i in arr){
+				document.write(i+":"+arr[i]+"<br>")
+			}
+		</script>
+	</body>
+</html>

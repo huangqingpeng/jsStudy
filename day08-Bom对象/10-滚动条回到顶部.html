@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    *{
+		    	padding:0;
+		    	margin:0;
+		    }
+			#div1{
+				background:red;
+				height:5000px;
+				width:100%;
+			}
+			#fix{
+				background:blue;
+				height:100px;
+				width:80px;;
+				font-size: 40px;
+				position:fixed;
+				bottom:10px;
+				right:20px;
+				display:none;
+			}
+		</style>
+		<script>
+		    var timer;
+		    var isTime=false;
+		    //滚动条触发的事件
+			window.onscroll=function(){
+				var oDiv=document.getElementById("fix");
+				var _top=document.body.scrollTop||document.documentElement.scrollTop;
+				
+				if(_top>2000){
+					oDiv.style.display="block";
+				}else{
+					oDiv.style.display="none";
+				}
+				if(!isTime){
+					clearInterval(timer);
+				}else{
+					isTime=false;
+				}
+				//点击回到顶部
+				oDiv.onclick=function(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						    isTime=true;
+							var _top=document.body.scrollTop||document.documentElement.scrollTop;
+							_top-=30;
+							if(_top<0){
+								document.documentElement.scrollTop=0;
+								document.body.scrollTop=0;
+								clearInterval(timer);
+							}
+							if(document.body.scrollTop){
+								document.body.scrollTop=_top;
+							}else{
+								document.documentElement.scrollTop=_top;
+							}
+					},20)
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">12343546677688</div>
+		<div id="fix">回到顶部</div>
+	</body>
+	
+</html>

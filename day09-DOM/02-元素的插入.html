@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				床前明月光
+			</div><div id="div3">
+				疑是地上霜
+			</div><div id="div4">
+				举头望明月
+			</div><div id="div5">
+				低头思故乡
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv1=document.getElementById("div1");
+				var oDiv2=document.getElementById("div2");
+				var oDiv3=document.getElementById("div3");
+				var oDiv4=document.getElementById("div4");
+				var oDiv5=document.getElementById("div5");
+				oDiv1.insertBefore(oDiv5,oDiv3);
+				//parent.insertBefore(newElemnet,targetElemrnt)
+				//直接将一个节点插入到目标元素的后面
+				function insertAfter(newElemnet,targetElemrnt){
+					//得到目标元素的父节点parent
+					var parent=targetElemrnt.parentNode;
+					if(parent.lastChild==targetElemrnt){
+						//目标元素如果是最后一个元素，则直接插入到后面
+						parent.appendChild(newElemnet);
+					}else{
+						//如果目标元素不是最后一个，则直接插入到目标元素的下一个元素的前面
+						parent.insertBefore(newElemnet,targetElemrnt.nextSibling);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

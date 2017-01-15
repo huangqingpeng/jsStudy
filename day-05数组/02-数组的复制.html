@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    //数组深度复制
+			var arr1=[1,2,3,4,54];
+			var arr2=arr1;
+			console.log(arr1.join());
+			console.log(arr2.join());
+			var arr3=[];
+			for(var key in arr1){
+				arr3[key]=arr1[key];
+			}
+			console.log(arr3.join());
+			console.log("--------------");
+			//concat拼接方法复制
+			var arr4=arr1.concat();
+			arr4[0]=500;
+			console.log(arr4.join());
+			console.log("--------------");
+			//splice,截取方法复制
+			var arr5=arr4.splice(0);
+			arr5[0]=100;
+			console.log(arr5.join());
+			console.log("--------------");
+			//转换字符串
+			var arr6=[];
+			arr6=arr1.join(",").split(",");
+			arr6[0]=10;
+			console.log(arr6.join());
+			console.log("--------------");
+			//json方法
+			var arr7=[];
+			var str=JSON.stringify(arr1);
+			console.log(str);
+			arr7=JSON.parse(str);
+			arr7[1]=9000;
+			console.log(arr7.join());
+			console.log("--------------");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/$.js">
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="txt1" id="btn" value="判断" />
+		<script type="text/javascript">
+			$("#btn").onclick=function(){
+				var arr=["大于0","小于0","等于0"];
+				var n=$("#txt1").value;
+				switch(true){
+					case n>0: alert(arr[0]);break;
+					case n==0: alert(arr[2]);break;
+					case n<0: alert(arr[1]);break;
+					default:alert("输入错误");
+				}
+			}
+		</script>
+	</body>
+</html>

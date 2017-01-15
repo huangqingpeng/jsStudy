@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    *{
+		    	padding:0;
+		    	margin:0;
+		    }
+			body{
+				background:#000;
+			}
+			input{
+				position:absolute;
+				left:45%;
+				top:500px;
+				width:100px;
+				height:50px;
+				font-size: 30px;
+				line-height:50px;
+				text-align:center;
+			}
+			.span{
+				width:60px;
+				height:60px;
+				background:pink;
+				color:#fff;
+				font-size:50px;
+				font-weight: bolder;
+				position: absolute;
+				top:0;
+				left:0;
+				line-height:60px;
+				text-align:center;
+				border-radius:50%;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="开始" />
+		<script type="text/javascript">
+		    //页面随机生成字母
+		    //字母向下运动
+		    //键盘事件，点击相应键，字母消失
+			var str="abcdefghijklmnopqrestuvwxyz";
+			window.onload=function(){
+				var oBtn=document.getElementById("btn");
+				var timer;
+				oBtn.onclick=function(){
+					//点击开始，生成的字母，并向下运动
+					clearInterval(timer);
+					timer=setInterval(function(){
+						var oSpan=document.createElement("span");
+						oSpan.innerHTML=str[parseInt(Math.random()*27)];
+						oSpan.className="span";
+						oSpan.style.left=(parseInt(Math.random()*(window.innerWidth-50))-25)+"px";
+						document.body.appendChild(oSpan);
+						oSpan.time=setInterval(function(){
+							oSpan.style.top=parseInt(oSpan.offsetTop+10)+"px";
+						    if(oSpan.offsetTop>800){
+						    	alert("Game Over");
+						    	clearInterval(oSpan.time);
+						    	location.reload();
+						    }
+						},200)
+					},1000)
+				}
+				
+				//键盘事件
+				document.onkeypress=function(e){
+					var chars=String.fromCharCode(e.keyCode);//摁的键盘字母
+					var charSpan=document.getElementsByTagName("span");//掉落的所有字符组合
+					for(var i=0;i<charSpan.length;i++){
+						if(chars==charSpan[i].innerHTML){
+							var parent=charSpan[i].parentNode;
+							clearInterval(charSpan[i].time);
+							parent.removeChild(charSpan[i]);
+							break;
+						}
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

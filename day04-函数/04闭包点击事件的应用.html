@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>1111111</div>
+		<div>2222222</div>
+		<div>3333333</div>
+		<div>4444444</div>
+		<script type="text/javascript">
+		    var oDiv=document.getElementsByTagName("div");
+		    for(var i=0;i<oDiv.length;i++){
+		    	
+					oDiv[i].onclick=(function(i){
+				           return function(){
+				           	alert(i);
+				           }
+			           })(i)
+				}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//访问函数内的变量
+			var a;
+			function fn2(){
+				var x=100;
+				a=x;
+			}
+			fn2();
+			alert(a);
+			
+			//闭包，访问函数内的变量
+			/*function fn1(){
+				var x=100;
+				return function (){
+					alert(x++);
+				}
+			}
+			
+			var fn=fn1();
+			fn();//100
+			fn();//101
+			fn();//102
+			*/
+			//闭包，访问函数内的变量
+			function fn1(a){
+				var x=a;
+				return function fn2(b){
+					alert(++x+b);
+				}
+			}
+			var fn=fn1(100);
+			fn(5);//106
+			fn(10);//112
+			
+			var x=10;
+			alert(x);//10
+			function dw(){
+				var x=100;
+				return function foo(m){
+					alert(x+m);
+				}
+			}
+			var x=300;
+			var fnn=dw();
+			fnn(10);//110;
+			alert(x);//300
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

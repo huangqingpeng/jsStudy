@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn1" id="btn1" value="按钮1" />
+		<input type="button" name="btn1" id="btn2" value="按钮2" />
+		<script type="text/javascript">
+			document.getElementById("btn1").onclick=function(){
+				alert(this.value);
+			}
+			document.getElementById("btn2").onclick=document.getElementById("btn1").onclick;
+			//this指向对象发生了变化 
+			
+			function fn1(a,b){
+				var a=100,b=200;
+				alert(a+" "+b);
+			}
+		
+		</script>
+	</body>
+</html>

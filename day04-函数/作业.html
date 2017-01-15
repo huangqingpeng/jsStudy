@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <style type="text/css">
+	    	*{
+				margin:0;
+				padding:0;
+		     }
+		     
+		     #box{
+		     	margin:50px auto;
+		     	height:362px;
+		     	width:364px;
+		     	background:#ccc;
+		     }
+		     input{
+		     	height:50px;
+		     	width:360px;
+		     	margin-bottom:30px;
+		     	text-align: right;
+		     	font-size: 30px;
+		     }
+		     li{
+		     	list-style:none;
+		     	font-size:30px;
+		     	cursor: pointer;
+		     	background:#999;
+		     	height:50px;
+		     	width:50px;
+		     	text-align: center;
+		     	line-height: 50px;
+		     }
+		     li:hover{
+		     	background:pink;
+		     }
+		     ul{
+		     	width:300px;
+		     	float:left;
+		     }
+		     ul li{
+		     	float:left;
+		     	margin:10px;
+		     }
+		     /*.greatwidth{
+		     	width:120px;
+		     }*/
+		    .str0{
+		    	float:left;
+		    	font-size:16px;
+		     	cursor: pointer;
+		     	background:#999;
+		     	height:50px;
+		     	width:50px;
+		     	text-align: center;
+		     	line-height: 50px;
+		     	margin:10px;
+		    }
+		    .str0:hover{
+		    	background:pink;
+		    }
+		     ol{
+		     	float:left;
+		     }
+		     ol li{
+		     	margin:10px 0 20px 0;
+		     }
+		     .greatheight{
+		     	height:120px;
+		     	line-height: 120px;
+		     }
+	    </style>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+		//n天前桃子
+			function fn(n){
+				if(n==1){
+					return 1;
+				}
+				return (fn(n-1)+1)*2
+			}
+			alert(fn(10));//1534
+		</script>
+		<!--简易计算器-->
+		
+		<div id="box">
+			<input type="text" name="txt1" id="txt1" value="0" />
+			<div id="div1">
+				<ul>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li class="result">/</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li class="result">*</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>-</li>
+					<li class="greatwidth">0</li>
+					<li class="result">.</li>
+					<li>+</li>
+					<p class="str0">清零</p>
+			    </ul>
+			    <ol>
+			    	<li class="result">%</li>
+			    	<li class="ht">1/x</li>
+			    	<li class="greatheight result">=</li>
+			    </ol>
+		    </div>
+		</div>
+		
+		<script type="text/javascript">
+			var oTxt1=document.getElementById("txt1");
+			var oList=document.getElementsByTagName("li");
+			var str="";
+			for(var i=0;i<oList.length-2;i++){
+				oList[i].index=i;
+				oList[i].onclick=function(){
+					var a=this.innerHTML;
+//					console.log(a);
+					str=str.concat(a)
+					console.log(str);
+					oTxt1.value=str;
+					//oTxt1.value=eval(str);
+				}
+			}
+			document.getElementsByClassName("greatheight")[0].onclick=function(){
+				if(str){
+					oTxt1.value=eval(str);
+					str=eval(str)+"";
+					//str="0";
+				}else{
+					oTxt1.value=NaN;
+				}
+				
+			}
+			document.getElementsByClassName("str0")[0].onclick=function(){
+				oTxt1.value=0;
+				str="";
+			}
+			document.getElementsByClassName("ht")[0].onclick=function(){
+				var a=eval(str);
+				oTxt1.value=eval(1/a);
+				str=""+oTxt1.value;
+			}
+			//0-100之间7的倍数，和包含7的数字
+			var arr=[];
+			for(var i=1;i<=100;i++){
+				if(i%7==0||check(i,7)){
+					arr.push(i);
+				}
+			}
+			//alert(arr.join(" "));
+			document.write(arr.join(" "));
+			//7 14 17 21 27 28 35 37 42 47 49 56 57 63 67 70 71 72 73 74 75 76 77 78 79 84 87 91 97 98
+			//判断，数字n里面是否含m；
+			function check(n,m){
+				var str=n+"";
+				for(var i=0;i<str.length;i++){
+					if(str.indexOf(m)==-1){
+						return false;
+					}else{
+						return true;
+					}
+				}
+			}
+			//alert(check(33,6))
+			//判断日期是否正确
+			foo(2009,3,31)
+			function foo(year,month,day){
+				if(checkDate(year,month,day)){
+					alert("日期正确")
+				}else{
+					alert("日期不正确")
+				}
+			}
+			function checkDate(year,month,day){
+				if(yunnian(year)&&month==2&&day<=29){
+					return true;
+				}else{
+					switch(month){
+						case 1: if(day<=31){return true;};break;
+						case 2: if(day<29){return true;};break;
+						case 3: if(day<=31){return true;};break;
+						case 4: if(day<31){return true;};break;
+						case 5: if(day<=31){return true;};break;
+						case 6: if(day<31){return true;};break;
+						case 7: if(day<=31){return true;};break;
+						case 8: if(day<=31){return true;};break;
+						case 9: if(day<31){return true;};break;
+						case 10: if(day<=31){return true;};break;
+						case 11: if(day<31){return true;};break;
+						case 12: if(day<=31){return true;};break;
+						default: return false;
+					}
+				}
+			}
+			checkDate(year,month,day)
+			//判断闰年
+			function yunnian(year){
+				if((year%4==0&&year%100!=0&&year%400!=0)||(year%100==0&&year%400==0)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		</script>
+		
+	</body>
+</html>

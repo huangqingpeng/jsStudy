@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				position:relative;
+				left:600px;
+				top:400px;
+				width:5px;
+				height:5px;
+				background:#FFC0CB;
+			}
+			 .creatediv{
+			 	border:1px solid #0000FF;
+			 	border-radius: 50%;
+			 	width:50px;
+			 	height:50px;
+			 	/*position:absolute;*/
+			 }
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+		</div>
+		<script type="text/javascript">
+			var n=300;
+			var r=300;
+			var oDiv1=document.getElementById("div1");
+			//for(var i=0;i<n;i++){
+//				var oDiv=document.createElement("div");
+//				var _left=r*Math.cos(i*2*Math.PI/n)+"px";
+//				var _top=r*Math.sin(i*2*Math.PI/n)+"px";
+//				oDiv.className="creatediv";
+//				oDiv.style.position="absolute";
+//				oDiv.style.top=_top;
+//				oDiv.style.left=_left;
+//				oDiv1.appendChild(oDiv);
+//				console.log(oDiv);
+			//}
+			var timer;
+			var n=0
+			timer=setInterval(function(){
+				var oDiv=document.createElement("div");
+				var _left=r*Math.cos(n*2*Math.PI/260)+"px";
+				var _top=r*Math.sin(n*2*Math.PI/260)+"px";
+				oDiv.className="creatediv";
+				oDiv.style.position="absolute";
+				oDiv.style.top=_top;
+				oDiv.style.left=_left;
+				oDiv1.appendChild(oDiv);
+				if(n==260){
+					clearInterval(timer);
+				}
+				n++
+			},20)
+		</script>
+	</body>
+</html>

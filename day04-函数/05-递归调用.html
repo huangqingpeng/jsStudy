@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//递归求阶乘
+			function fn1(n){
+				if(n==1){
+					return 1
+				}
+				return n*fn1(n-1);
+			}
+			alert(fn1(3));//6
+			//递归求阶乘的和
+			function fn2(n){
+				if(n==1){
+					return 1;
+				}
+				return fn1(n)+fn2(n-1);
+			}
+			alert(fn2(3));//9
+			//递归求菲波那切数列 1 1 2 3 5.。。。。n
+			//第n项是前两项之和
+			function sum(n){
+				if(n==1||n==2){
+					return 1;
+				}
+				return sum(n-1)+sum(n-2);
+			}
+			alert(5);//5
+			
+		</script>
+	</body>
+</html>

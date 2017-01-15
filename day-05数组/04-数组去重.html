@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=[1,2,6,3,2,2,2,3,3,3,4,5,5,5,"a","A"];
+			function delRepeat1(arr){
+				for(var i=0;i<arr.length;i++){
+					for(var j=i+1;j<arr.length;j++){
+						if(arr[i]==arr[j]){
+							arr.splice(j,1);
+							j--;
+						}
+					}
+				}
+				return arr;
+			}
+			//alert(delRepeat1(arr));
+			//递归方法
+			function delRepeat2(arr){
+				for(var i=0;i<arr.length;i++){
+					for(var j=i+1;j<arr.length;j++){
+						if(arr[i]==arr[j]){
+							arr.splice(j,1);
+							//j--;
+							delRepeat2(arr)
+						}
+					}
+				}
+				return arr;
+			}
+			console.log(arr);
+			//alert(delRepeat2(arr));
+			//定义一个空数组去储存没有重复的数数组元素
+			function delRepeat3(arr){
+				var arr2=[];
+				for(var i=0;i<arr.length;i++){
+				    if(arr2.indexOf(arr[i])==-1){
+				    	arr2.push(arr[i]);
+				    }
+			    }
+				return arr2;
+			}
+			//alert(delRepeat3(arr));
+			
+			//中间对象法，记录数组中单一元素重复的次数
+			function fn(arr){
+				var obj={};
+				var arr6=[];//去重后的元素放入数组
+				var arr7=[];//某一元素重复的次数的数组
+				for(var i=0;i<arr.length;i++){
+					if(obj[arr[i]]){
+						obj[arr[i]]++;
+						arr7.push(obj[arr[i]]);
+					}else{
+						obj[arr[i]]=1;
+						arr6.push(arr[i]);
+					}
+				//console.log(obj);
+			    } 
+			    return obj;
+			}
+			console.log(fn(arr));
+		</script>
+	</body>
+</html>
